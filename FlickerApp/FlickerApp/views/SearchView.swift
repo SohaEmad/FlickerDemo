@@ -37,13 +37,9 @@ struct SearchView: View {
             
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
-                    Button (action: {
-                    }, label: {
                         Image("home")
                             .resizable()
                             .frame(width: 40)
-                    }
-                    )
                 }
              
                 ToolbarItem(placement: .automatic) {
@@ -51,20 +47,23 @@ struct SearchView: View {
                     HStack{                     
                         Text(modelView.user?.username?._content ?? "userName")
                         Spacer()
-                        AsyncImage(
-                            url: URL(string:modelView.user?.profilePhoto ?? ""),
-                            content: { image in
-                                image.resizable()
-                                    .aspectRatio(contentMode: .fit)
-                                    .scaledToFit()
-                                    .clipShape(.circle)
-                            },
-                            placeholder: {
-                                Image(systemName: "person")
-                                    .scaledToFit()
-                                    .frame(height: 90)
-                                    .clipped()
-                            })
+                        
+                        NavigationLink(destination: UserView(modelView: modelView)) {
+                            AsyncImage(
+                                url: URL(string:modelView.user?.profilePhoto ?? ""),
+                                content: { image in
+                                    image.resizable()
+                                        .aspectRatio(contentMode: .fit)
+                                        .scaledToFit()
+                                        .clipShape(.circle)
+                                },
+                                placeholder: {
+                                    Image(systemName: "person")
+                                        .scaledToFit()
+                                        .frame(height: 90)
+                                        .clipped()
+                                })
+                        }
                     }
                 }
                 

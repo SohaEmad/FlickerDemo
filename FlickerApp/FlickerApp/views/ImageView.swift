@@ -11,7 +11,7 @@ struct ImageView: View {
     var photo: Photo
     @State var showMoreDetials : Bool = false
     
-    var body: some View {
+    var body: some View {      
         VStack {
                 AsyncImage(
                     url: URL(string:photo.url_l ?? ""),

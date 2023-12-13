@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:">
+      location = "self:/Users/sohaahmed/CS193-swiftUI/FlickerDemo/FlickerApp/FlickerApp.xcodeproj">
    </FileRef>
 </Workspace>

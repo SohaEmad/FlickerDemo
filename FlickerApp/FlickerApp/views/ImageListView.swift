@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct ImageListView: View {
-    @ObservedObject var modelView = ModelView()
+    
+    var modelView: ModelView
+    var usingUserID: Bool
     
     var body: some View {
         NavigationStack {
@@ -25,7 +27,7 @@ struct ImageListView: View {
                 Color.clear
                     .frame(width: 0, height: 0, alignment: .bottom)
                     .onAppear {
-                        modelView.loadMorePhotos()
+                        modelView.loadMorePhotos(usingUserId: usingUserID)
                     }
             }
             .edgesIgnoringSafeArea(.horizontal)
@@ -34,9 +36,12 @@ struct ImageListView: View {
                               edges: .bottom)
             .padding(.bottom)
         }
+        .onAppear{
+            modelView.getPhotos(useUserId: usingUserID)
+        }
     }
 }
-
-#Preview {
-    ImageListView()
-}
+//
+//#Preview {
+//    ImageListView()
+//}

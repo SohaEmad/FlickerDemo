@@ -13,9 +13,11 @@ class ModelView: ObservableObject {
     @Published var user: User?
     @Published var userUrl: String = "https://www.flickr.com/photos/dswindler/"
     @Published var photos: [Photo] = []
+    @Published var userID = ""
     private var pageCount = 1
     
-    func buildUrl(searchText: String, userID:String = "") -> URL? {
+    
+    func buildUrl(searchText: String, useUserId: Bool) -> URL? {
         var _searchText = searchText
         if( searchText.isEmpty) {
             return nil;
@@ -30,14 +32,18 @@ class ModelView: ObservableObject {
             _searchText = text[0].trimmingCharacters(in: .whitespacesAndNewlines)
         }
         
-        let safeText = _searchText.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)!
-        let safeCat = _cat.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)!
-        return  URL(string: "https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=f46b7b3920dc5855bdfdbeacd14b3ebd&safe_search=safe&user_id=\(userID)&tags=\(safeCat)&text=\(safeText)&privacy_filter=1&content_type=1&extras=url_s%2C+url_o%2C+url_t%2C+url_m%2C+url_l%2C+description%2C+tags&per_page=20&page=\(pageCount)&format=json&nojsoncallback=1")
+        if useUserId {
+            let userIdEncoded = Constatnts.USER_ID.urlEncoded ?? ""
+            return URL(string: "\(Constatnts.FLICKER_GET_PHOTOS)&user_id=\(userIdEncoded)&\(Constatnts.EXTRAS)&page=\(pageCount)&\(Constatnts.FORMAT)")
+        }
+        
+        let safeText = "&text=\(_searchText.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)!)"
+        let tags = "&tags=\(_cat.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)!)"
+        return URL(string: "\(Constatnts.FLICKER_GET_PHOTOS)\(tags)\(safeText)&\(Constatnts.EXTRAS)&page=\(pageCount)&\(Constatnts.FORMAT)")
     }
     
-    @MainActor  func getUserID() -> String {
-        let url = URL(string: "https://www.flickr.com/services/rest/?method=flickr.urls.lookupUser&api_key=f46b7b3920dc5855bdfdbeacd14b3ebd&url=\(userUrl)&format=json&nojsoncallback=1")!
-        print(url)
+    @MainActor func getUserID() -> String {
+        let url = URL(string: "\(Constatnts.FLICKER_GET_USER)&url=\(userUrl)&\(Constatnts.FORMAT)")!
         Task{
             do{
                 let (data, response) = try await URLSession.shared.data(from: url)
@@ -46,10 +52,8 @@ class ModelView: ObservableObject {
                 }
                 do {
                     let decoder = JSONDecoder()
-                    print(String(data: data, encoding: .utf8))
                     user =  try decoder.decode(User.self, from: data)
-                    user?.profilePhoto = "https://farm9.staticflickr.com/8573/buddyicons/\(user?.id ?? "38945681@N07")_l.jpg" 
-                    print(user?.profilePhoto)
+                    user?.profilePhoto = String(format: Constatnts.PROFILE_PHOTO, user?.id ?? Constatnts.USER_ID)
                 }
                 catch let error {
                     print(error)
@@ -58,12 +62,13 @@ class ModelView: ObservableObject {
                 print(error)
             }
         }
-        return ""
+        self.userID = user?.id ?? Constatnts.USER_ID
+        return user?.id ?? Constatnts.USER_ID
     }
     
     
-    @MainActor func getPhotos() {
-        guard let url = buildUrl(searchText: searchText) else {
+    @MainActor func getPhotos(useUserId: Bool = false) {
+        guard let url = buildUrl(searchText: searchText, useUserId: useUserId) else {
             return
         }
         Task{
@@ -77,7 +82,7 @@ class ModelView: ObservableObject {
                     let decoder = JSONDecoder()
                     let response =  try decoder.decode(Response.self, from: data)
                     if response.photos.total > 0 {
-                        photos = response.photos.photo
+                        photos = response.photos.getValidPhotos()
                     }
                 }
                 catch let error {
@@ -89,13 +94,11 @@ class ModelView: ObservableObject {
         }
     }
     
-    @MainActor func loadMorePhotos() {
+    @MainActor func loadMorePhotos(usingUserId: Bool = false) {
         pageCount += 1
-        getPhotos()
+        getPhotos(useUserId: usingUserId)
     }
 }
-
-
 
 
 enum RetreiveError: Error{
@@ -105,3 +108,9 @@ enum RetreiveError: Error{
     case invalidData
 }
 
+extension String {
+    var urlEncoded: String? {
+        let allowedCharacterSet = CharacterSet.alphanumerics.union(CharacterSet(charactersIn: "@~-_."))
+        return self.addingPercentEncoding(withAllowedCharacters: allowedCharacterSet)
+    }
+}
