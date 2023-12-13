@@ -17,32 +17,7 @@ class ModelView: ObservableObject {
     private var pageCount = 1
     
     
-    func buildUrl(searchText: String, useUserId: Bool) -> URL? {
-        var _searchText = searchText
-        if( searchText.isEmpty) {
-            return nil;
-        }
-        var text = _searchText.components(separatedBy: ",")
-        var _cat = "";
-        if(text.count > 1){
-            _searchText = text[text.count-1].trimmingCharacters(in: .whitespacesAndNewlines);
-            text.removeLast()
-            _cat = text.joined(separator: ",")
-        } else {
-            _searchText = text[0].trimmingCharacters(in: .whitespacesAndNewlines)
-        }
-        
-        if useUserId {
-            let userIdEncoded = Constatnts.USER_ID.urlEncoded ?? ""
-            return URL(string: "\(Constatnts.FLICKER_GET_PHOTOS)&user_id=\(userIdEncoded)&\(Constatnts.EXTRAS)&page=\(pageCount)&\(Constatnts.FORMAT)")
-        }
-        
-        let safeText = "&text=\(_searchText.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)!)"
-        let tags = "&tags=\(_cat.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)!)"
-        return URL(string: "\(Constatnts.FLICKER_GET_PHOTOS)\(tags)\(safeText)&\(Constatnts.EXTRAS)&page=\(pageCount)&\(Constatnts.FORMAT)")
-    }
-    
-    @MainActor func getUserID() -> String {
+    @MainActor func getUserID() {
         let url = URL(string: "\(Constatnts.FLICKER_GET_USER)&url=\(userUrl)&\(Constatnts.FORMAT)")!
         Task{
             do{
@@ -63,7 +38,6 @@ class ModelView: ObservableObject {
             }
         }
         self.userID = user?.id ?? Constatnts.USER_ID
-        return user?.id ?? Constatnts.USER_ID
     }
     
     
@@ -98,10 +72,34 @@ class ModelView: ObservableObject {
         pageCount += 1
         getPhotos(useUserId: usingUserId)
     }
+    
+    private func buildUrl(searchText: String, useUserId: Bool) -> URL? {
+        var _searchText = searchText
+        if( searchText.isEmpty) {
+            return nil;
+        }
+        var text = _searchText.components(separatedBy: ",")
+        var _cat = "";
+        if(text.count > 1){
+            _searchText = text[text.count-1].trimmingCharacters(in: .whitespacesAndNewlines);
+            text.removeLast()
+            _cat = text.joined(separator: ",")
+        } else {
+            _searchText = text[0].trimmingCharacters(in: .whitespacesAndNewlines)
+        }
+        
+        if useUserId {
+            let userIdEncoded = Constatnts.USER_ID.urlEncoded ?? ""
+            return URL(string: "\(Constatnts.FLICKER_GET_PHOTOS)&user_id=\(userIdEncoded)&\(Constatnts.EXTRAS)&page=\(pageCount)&\(Constatnts.FORMAT)")
+        }
+        
+        let safeText = "&text=\(_searchText.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)!)"
+        let tags = "&tags=\(_cat.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)!)"
+        return URL(string: "\(Constatnts.FLICKER_GET_PHOTOS)\(tags)\(safeText)&\(Constatnts.EXTRAS)&page=\(pageCount)&\(Constatnts.FORMAT)")
+    }
 }
 
-
-enum RetreiveError: Error{
+enum RetreiveError: Error {
     case invalidURL
     case emptyReturn
     case invalidresponse

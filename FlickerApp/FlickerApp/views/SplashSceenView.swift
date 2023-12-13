@@ -17,7 +17,7 @@ struct LoadingView: View {
     let timer = Timer.publish(every: 0.5, on: .main, in: .common).autoconnect()
     var body: some View {
         if isActive {
-            ContentView()
+            SearchView()
         } else {
             VStack{
                 Text("Flicker")

@@ -743,8 +743,8 @@
             filePath = "FlickerApp/ModelView/ModelView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "98"
-            endingLineNumber = "98"
+            startingLineNumber = "72"
+            endingLineNumber = "72"
             landmarkName = "loadMorePhotos(usingUserId:)"
             landmarkType = "7">
             <Locations>
@@ -806,8 +806,8 @@
             filePath = "FlickerApp/ModelView/ModelView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "99"
-            endingLineNumber = "99"
+            startingLineNumber = "73"
+            endingLineNumber = "73"
             landmarkName = "loadMorePhotos(usingUserId:)"
             landmarkType = "7">
             <Locations>
@@ -863,196 +863,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "A0F660C2-EA77-4EB3-9A1B-C6D31EF7C757"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FlickerApp/ModelView/ModelView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "35"
-            endingLineNumber = "35"
-            landmarkName = "buildUrl(searchText:useUserId:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "A0F660C2-EA77-4EB3-9A1B-C6D31EF7C757 - 18b4874e32873ae6"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "FlickerApp.ModelView.buildUrl(searchText: Swift.String) -&gt; Swift.Optional&lt;Foundation.URL&gt;"
-                  moduleName = "FlickerApp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sohaahmed/CS193-swiftUI/FlickerDemo/FlickerApp/FlickerApp/ModelView/ModelView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "41"
-                  endingLineNumber = "41"
-                  offsetFromSymbolStart = "2924">
-               </Location>
-               <Location
-                  uuid = "A0F660C2-EA77-4EB3-9A1B-C6D31EF7C757 - 18b4874e32873ae6"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "FlickerApp.ModelView.buildUrl(searchText: Swift.String) -&gt; Swift.Optional&lt;Foundation.URL&gt;"
-                  moduleName = "FlickerApp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sohaahmed/CS193-swiftUI/FlickerDemo/FlickerApp/FlickerApp/ModelView/ModelView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "41"
-                  endingLineNumber = "41"
-                  offsetFromSymbolStart = "2868">
-               </Location>
-               <Location
-                  uuid = "A0F660C2-EA77-4EB3-9A1B-C6D31EF7C757 - 18b4874e32873ba0"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "FlickerApp.ModelView.buildUrl(searchText: Swift.String) -&gt; Swift.Optional&lt;Foundation.URL&gt;"
-                  moduleName = "FlickerApp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sohaahmed/CS193-swiftUI/FlickerDemo/FlickerApp/FlickerApp/ModelView/ModelView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "35"
-                  endingLineNumber = "35"
-                  offsetFromSymbolStart = "1272">
-               </Location>
-               <Location
-                  uuid = "A0F660C2-EA77-4EB3-9A1B-C6D31EF7C757 - 463640b1fbcd8a7e"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "FlickerApp.ModelView.buildUrl(searchText: Swift.String, useUserId: Swift.Bool) -&gt; Swift.Optional&lt;Foundation.URL&gt;"
-                  moduleName = "FlickerApp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sohaahmed/CS193-swiftUI/FlickerDemo/FlickerApp/FlickerApp/ModelView/ModelView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "35"
-                  endingLineNumber = "35"
-                  offsetFromSymbolStart = "1300">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "06266DF9-C196-4F5B-B2BE-F9A4874D58B3"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FlickerApp/ModelView/ModelView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "36"
-            endingLineNumber = "36"
-            landmarkName = "buildUrl(searchText:useUserId:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "06266DF9-C196-4F5B-B2BE-F9A4874D58B3 - 18b4874e32873a41"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "FlickerApp.ModelView.buildUrl(searchText: Swift.String) -&gt; Swift.Optional&lt;Foundation.URL&gt;"
-                  moduleName = "FlickerApp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sohaahmed/CS193-swiftUI/FlickerDemo/FlickerApp/FlickerApp/ModelView/ModelView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "36"
-                  endingLineNumber = "36"
-                  offsetFromSymbolStart = "1428">
-               </Location>
-               <Location
-                  uuid = "06266DF9-C196-4F5B-B2BE-F9A4874D58B3 - 463640b1fbcd8b9f"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "FlickerApp.ModelView.buildUrl(searchText: Swift.String, useUserId: Swift.Bool) -&gt; Swift.Optional&lt;Foundation.URL&gt;"
-                  moduleName = "FlickerApp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sohaahmed/CS193-swiftUI/FlickerDemo/FlickerApp/FlickerApp/ModelView/ModelView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "36"
-                  endingLineNumber = "36"
-                  offsetFromSymbolStart = "1324">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "BE163FAF-10B2-44C9-A232-F8351A1E0105"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FlickerApp/ModelView/ModelView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "37"
-            endingLineNumber = "37"
-            landmarkName = "buildUrl(searchText:useUserId:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "BE163FAF-10B2-44C9-A232-F8351A1E0105 - 18b4874e32873a62"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "FlickerApp.ModelView.buildUrl(searchText: Swift.String) -&gt; Swift.Optional&lt;Foundation.URL&gt;"
-                  moduleName = "FlickerApp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sohaahmed/CS193-swiftUI/FlickerDemo/FlickerApp/FlickerApp/ModelView/ModelView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "37"
-                  endingLineNumber = "37"
-                  offsetFromSymbolStart = "1648">
-               </Location>
-               <Location
-                  uuid = "BE163FAF-10B2-44C9-A232-F8351A1E0105 - 463640b1fbcd8bbc"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "FlickerApp.ModelView.buildUrl(searchText: Swift.String, useUserId: Swift.Bool) -&gt; Swift.Optional&lt;Foundation.URL&gt;"
-                  moduleName = "FlickerApp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sohaahmed/CS193-swiftUI/FlickerDemo/FlickerApp/FlickerApp/ModelView/ModelView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "37"
-                  endingLineNumber = "37"
-                  offsetFromSymbolStart = "1544">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "539955F3-E31F-4987-BFF5-6907D879DC49"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FlickerApp/ModelView/ModelView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "42"
-            endingLineNumber = "42"
-            landmarkName = "buildUrl(searchText:useUserId:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "708E3A33-5CFE-4700-A1B5-1AB8145855A9"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -1060,8 +870,8 @@
             filePath = "FlickerApp/ModelView/ModelView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "72"
-            endingLineNumber = "72"
+            startingLineNumber = "46"
+            endingLineNumber = "46"
             landmarkName = "getPhotos(useUserId:)"
             landmarkType = "7">
             <Locations>
@@ -1108,8 +918,8 @@
             filePath = "FlickerApp/ModelView/ModelView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "71"
-            endingLineNumber = "71"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
             landmarkName = "getPhotos(useUserId:)"
             landmarkType = "7">
             <Locations>
@@ -1156,8 +966,8 @@
             filePath = "FlickerApp/ModelView/ModelView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "74"
-            endingLineNumber = "74"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
             landmarkName = "getPhotos(useUserId:)"
             landmarkType = "7">
             <Locations>
@@ -1234,8 +1044,8 @@
             filePath = "FlickerApp/ModelView/ModelView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "85"
-            endingLineNumber = "85"
+            startingLineNumber = "59"
+            endingLineNumber = "59"
             landmarkName = "getPhotos(useUserId:)"
             landmarkType = "7">
             <Locations>

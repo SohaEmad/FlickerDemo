@@ -12,7 +12,6 @@ struct FlickerApp: App {
     var body: some Scene {
         WindowGroup {
             LoadingView()
-//            ContentView()
         }
     }
 }

@@ -37,14 +37,14 @@ struct SearchView: View {
             
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
-                        Image("home")
-                            .resizable()
-                            .frame(width: 40)
+                    Image("home")
+                        .resizable()
+                        .frame(width: 40)
                 }
-             
+                
                 ToolbarItem(placement: .automatic) {
                     
-                    HStack{                     
+                    HStack{
                         Text(modelView.user?.username?._content ?? "userName")
                         Spacer()
                         

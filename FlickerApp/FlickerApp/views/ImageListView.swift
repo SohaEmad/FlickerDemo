@@ -41,7 +41,3 @@ struct ImageListView: View {
         }
     }
 }
-//
-//#Preview {
-//    ImageListView()
-//}
