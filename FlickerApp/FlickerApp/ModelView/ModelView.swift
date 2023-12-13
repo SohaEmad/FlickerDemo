@@ -23,18 +23,18 @@ class ModelView: ObservableObject {
             do{
                 let (data, response) = try await URLSession.shared.data(from: url)
                 guard let response =  response as? HTTPURLResponse, response.statusCode == 200 else {
-                    throw RetreiveError.invalidresponse
+                    throw RetreiveError.invalidURL
                 }
                 do {
                     let decoder = JSONDecoder()
                     user =  try decoder.decode(User.self, from: data)
                     user?.profilePhoto = String(format: Constatnts.PROFILE_PHOTO, user?.id ?? Constatnts.USER_ID)
                 }
-                catch let error {
-                    print(error)
+                catch {
+                    throw RetreiveError.invalidresponse
                 }
-            } catch let error{
-                print(error)
+            } catch {
+                throw RetreiveError.invalidData
             }
         }
         self.userID = user?.id ?? Constatnts.USER_ID
@@ -59,11 +59,11 @@ class ModelView: ObservableObject {
                         photos = response.photos.getValidPhotos()
                     }
                 }
-                catch let error {
-                    print(error)
+                catch {
+                    throw RetreiveError.invalidresponse
                 }
-            } catch let error {
-                print(error)
+            } catch {
+                throw RetreiveError.invalidData
             }
         }
     }

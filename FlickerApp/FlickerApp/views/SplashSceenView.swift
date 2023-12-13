@@ -9,6 +9,7 @@ import SwiftUI
 
 struct LoadingView: View {
     
+    @ObservedObject var modelView = ModelView()
     @State private var isActive = false
 
     @State private var isSelected = false
@@ -17,7 +18,7 @@ struct LoadingView: View {
     let timer = Timer.publish(every: 0.5, on: .main, in: .common).autoconnect()
     var body: some View {
         if isActive {
-            SearchView()
+            SearchView(modelView: modelView)
         } else {
             VStack{
                 Text("Flicker")
@@ -46,6 +47,8 @@ struct LoadingView: View {
                 }
             }
             .onAppear{
+                modelView.getPhotos()
+                modelView.getUserID()
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1.0){
                     withAnimation {
                         self.isActive = true

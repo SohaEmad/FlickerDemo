@@ -9,7 +9,7 @@ import SwiftUI
 
 struct UserView: View {
     
-    @ObservedObject var modelView =  ModelView()
+    @ObservedObject var modelView: ModelView
     
     var body: some View {
         VStack {

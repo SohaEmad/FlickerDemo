@@ -9,8 +9,7 @@ import SwiftUI
 
 struct SearchView: View {
     
-    @ObservedObject var modelView = ModelView()
-    
+    @ObservedObject var modelView: ModelView
     var body: some View {
         NavigationStack {
             List {
@@ -80,8 +79,4 @@ struct SearchView: View {
             }
         }
     }
-}
-
-#Preview {
-    SearchView()
 }
