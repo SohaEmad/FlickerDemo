@@ -43,7 +43,7 @@ struct DetailsView: View {
                     }
                 }
             }
-            Text(photo.desciption ?? "No desciption available")
+            Text(photo.desciption ?? "No description available")
                 .font(.body)
                 .fontWeight(.semibold)
                 .padding()
