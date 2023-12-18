@@ -10,7 +10,8 @@ API Resource [Flickr api](https://www.flickr.com/services/api/flickr.photos.sear
 
 
 ### APP Preview/Screens:
-![Alt Text](https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif)
+<img src="https://github.com/SohaEmad/FlickerDemo/blob/main/photos/splash_screen.gif" width="200">
+
 
 1- splash screen 
 2- search view 
