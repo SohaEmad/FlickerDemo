@@ -11,6 +11,10 @@ open class Constatnts{
     
    public static let USER_ID = "38945681@N07"
     
+    public static let USER_URL = "https://www.flickr.com/photos/"
+
+    public static let DEFAULT_USER = "dswindler"
+    
    public static let FLICKR_GET_PHOTOS = "https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=\(APIKey)&safe_search=safe"
     
     public static let EXTRAS = "privacy_filter=1&content_type=1&extras=url_l%2C+description%2C+tags&per_page=20"

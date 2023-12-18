@@ -6,13 +6,14 @@
 //
 
 import SwiftUI
+import TagLayoutView
 
 struct DetailsView: View {
     var photo: Photo
     
     var body: some View{
         
-        VStack {
+        ScrollView {
             AsyncImage(
                 url: URL(string:photo.url_l ?? ""),
                 content: { image in
@@ -36,18 +37,14 @@ struct DetailsView: View {
                 .font(.subheadline)
             let tags = photo.getTags()
             if !tags.isEmpty{
-                HStack{
-                    ForEach (tags, id: \.self){  tag in
-                        Label( tag, systemImage: "tag")
-                            .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
-                    }
-                }
+                TagView(tags: tags)
             }
-            Text(photo.desciption ?? "No description available")
+            Spacer()
+
+            Text(photo.description?._content ?? "No description available")
                 .font(.body)
                 .fontWeight(.semibold)
                 .padding()
-            Spacer()
-        }.padding(.bottom)
+        }
     }
 }

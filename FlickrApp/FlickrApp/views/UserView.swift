@@ -13,7 +13,7 @@ struct UserView: View {
     
     var body: some View {
         VStack {
-//            Text(modelView.user?.username?._content ?? "User name")
+            Text(modelView.user?.username?._content ?? "User name")
             AsyncImage(url: URL(string: String(format:Constatnts.PROFILE_PHOTO,modelView.user?.id ?? Constatnts.USER_ID))){ image in
                 image
                     .resizable()
@@ -51,6 +51,12 @@ struct UserView: View {
             
         } .onAppear{
             modelView.getPhotos(useUserId: true)
+            modelView.getUserID()
         }
     }
+}
+
+
+#Preview {
+    UserView(modelView: ModelView())
 }

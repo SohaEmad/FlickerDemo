@@ -10,6 +10,7 @@ import SwiftUI
 struct SearchView: View {
     
     @ObservedObject var modelView: ModelView
+    
     var body: some View {
         NavigationStack {
             List {
@@ -36,15 +37,17 @@ struct SearchView: View {
             
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
-                    Image("home")
-                        .resizable()
-                        .frame(width: 40)
+                    NavigationLink(destination: UserUrlInputView(modelView: modelView)) {
+                        
+                        Image("home")
+                            .resizable()
+                            .frame(width: 40)
+                    }
                 }
                 
-                ToolbarItem(placement: .automatic) {
+                ToolbarItem(placement: .topBarTrailing) {
                     
                     HStack{
-//                        Text(modelView.user?.username?._content ?? "userName")
                         Spacer()
                         
                         NavigationLink(destination: UserView(modelView: modelView)) {
@@ -79,4 +82,9 @@ struct SearchView: View {
             }
         }
     }
+}
+
+
+#Preview {
+    SearchView(modelView: ModelView())
 }

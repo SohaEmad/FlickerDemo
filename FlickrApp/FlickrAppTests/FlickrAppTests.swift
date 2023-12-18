@@ -6,32 +6,34 @@
 //
 
 import XCTest
+import Combine
+import SwiftUI
 @testable import FlickrApp
 
 final class FlickrAppTests: XCTestCase {
-
-    var response: Response? = nil
     
-    override func setUpWithError() throws {
-        let bundle = Bundle(for: type(of: self))
-        
-        let validResponse = bundle.url(forResource: "validPhotoResponse", withExtension: "json")!
-        let data = try! Data(contentsOf: validResponse)
-        
-        let decoder = JSONDecoder()
-        response = try decoder.decode(Response.self, from: data)
-    }
-    func testStringValueDecodedSuccessfully() throws {
-        XCTAssertEqual(response?.stat, "ok")
-        XCTAssertEqual(response?.photos.photo.count, 1)
-        XCTAssertEqual(response?.photos.photo[0].title, "Cat Paws")
+    var network = MockNetwork()
+    var photos: [Photo] = []
+    var user: User?
+    
+    @MainActor override func setUp() async throws {
+        user =  try await network.getUserId(userUrl: "https://www.flickr.com/photos/dswindler/")
+        photos = try await network.getPhotos(searchText: "", UserId: "", pageCount: 0)
     }
     
-    func testGettingTags() throws {
-        let photo = response?.photos.photo[0]
-        XCTAssertEqual(photo?.getTags(2).count, 3)
-        XCTAssertEqual(photo?.getTags().count, 8)
-        XCTAssertEqual(photo?.getTags()[0], "catlife")
+    func testPhotoDecodedSuccessfully() {
+        XCTAssertEqual(photos.count, 1)
+        XCTAssertEqual(photos[0].title, "Cat Paws")
     }
-
+    
+    func testGettingTags() {
+        XCTAssertEqual(photos[0].getTags(2).count, 3)
+        XCTAssertEqual(photos[0].getTags().count, 8)
+        XCTAssertEqual(photos[0].getTags()[0], "cat")
+    }
+    
+    func testUserDecodedSuccessfully()  {
+        XCTAssertEqual(user?.id, "38945681@N07")
+        XCTAssertEqual(user?.username?._content, "David Swindler (ActionPhotoTours.com)")
+    }
 }

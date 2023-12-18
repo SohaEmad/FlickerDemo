@@ -11,7 +11,7 @@ struct ImageView: View {
     var photo: Photo
     @State var showMoreDetials : Bool = false
     
-    var body: some View {      
+    var body: some View {
         VStack {
             AsyncImage(
                 url: URL(string:photo.url_l ?? ""),
@@ -32,12 +32,8 @@ struct ImageView: View {
                 .bold()
             let tags = photo.getTags(2)
             if !tags.isEmpty{
-                HStack{
-                    ForEach (tags, id: \.self){  tag in
-                        Label( tag, systemImage: "tag")
-                    }
-                }
-            }           
+                TagView(tags: tags)
+            }
         }
     }
 }

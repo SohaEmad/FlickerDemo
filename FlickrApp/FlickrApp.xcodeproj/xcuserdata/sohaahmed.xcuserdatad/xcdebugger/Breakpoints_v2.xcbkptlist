@@ -3,4 +3,100 @@
    uuid = "5536F979-8294-43B4-AB75-CA9FCD260B84"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6AE56ADD-A7AD-4560-B342-18304AF277BC"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FlickrAppTests/FlickrAppTests.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
+            landmarkName = "testGettingTags()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "6AE56ADD-A7AD-4560-B342-18304AF277BC - 9aef009faa580b58"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (Swift.Array&lt;FlickrApp.Photo&gt;) -&gt; () in FlickrAppTests.FlickrAppTests.testGettingTags() async throws -&gt; ()"
+                  moduleName = "FlickrAppTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sohaahmed/CS193-swiftUI/FlickerDemo/FlickrApp/FlickrAppTests/FlickrAppTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "36"
+                  endingLineNumber = "36"
+                  offsetFromSymbolStart = "508">
+               </Location>
+               <Location
+                  uuid = "6AE56ADD-A7AD-4560-B342-18304AF277BC - 9aef009faa580af5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (Swift.Array&lt;FlickrApp.Photo&gt;) -&gt; () in FlickrAppTests.FlickrAppTests.testGettingTags() async throws -&gt; ()"
+                  moduleName = "FlickrAppTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sohaahmed/CS193-swiftUI/FlickerDemo/FlickrApp/FlickrAppTests/FlickrAppTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "39"
+                  endingLineNumber = "39"
+                  offsetFromSymbolStart = "188">
+               </Location>
+               <Location
+                  uuid = "6AE56ADD-A7AD-4560-B342-18304AF277BC - 9aef009faa5809ed"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (Swift.Array&lt;FlickrApp.Photo&gt;) -&gt; () in FlickrAppTests.FlickrAppTests.testGettingTags() async throws -&gt; ()"
+                  moduleName = "FlickrAppTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sohaahmed/CS193-swiftUI/FlickerDemo/FlickrApp/FlickrAppTests/FlickrAppTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "47"
+                  endingLineNumber = "47"
+                  offsetFromSymbolStart = "188">
+               </Location>
+               <Location
+                  uuid = "6AE56ADD-A7AD-4560-B342-18304AF277BC - c4fb3a073437a3d2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Array&lt;FlickrApp.Photo&gt;) -&gt; () in FlickrAppTests.FlickrAppTests.testGettingTags() async throws -&gt; ()"
+                  moduleName = "FlickrAppTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sohaahmed/CS193-swiftUI/FlickerDemo/FlickrApp/FlickrAppTests/FlickrAppTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "47"
+                  endingLineNumber = "47"
+                  offsetFromSymbolStart = "188">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "ABF8124C-1BE8-44F8-B380-6B8F09BB0329"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FlickrApp/views/UserUrlInputView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
+            landmarkName = "body"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

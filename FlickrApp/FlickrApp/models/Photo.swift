@@ -5,7 +5,8 @@
 //  Created by Soha Ahmed on 12/12/2023.
 //
 
-public struct Photo: Codable, Identifiable, Hashable{
+public struct Photo: Codable, Identifiable{
+    
     public var id: String = ""
     var owner: String = ""
     var secret: String = ""
@@ -18,7 +19,7 @@ public struct Photo: Codable, Identifiable, Hashable{
     var url_l: String?
     var height_l: Int?
     var width_l: Int?
-    var desciption: String?
+    var description: Description?
     var tags: String?
     
     /**
@@ -27,12 +28,14 @@ public struct Photo: Codable, Identifiable, Hashable{
      - Returns: an array of string that include the photo tags the maximum length of maxLength or tags array length
      */
     func getTags(_ maxLength: Int? = nil)-> [String]{
-        var allTags = tags?.components(separatedBy: " ").filter({ $0 != ""}) ?? [] .sorted { lhs, rhs in
-            return lhs > rhs
-        }
+        var allTags = (tags?.components(separatedBy: " ").filter({ $0 != ""}) ?? []).sorted { $0.count < $1.count}
         guard let length = maxLength else {
             return allTags
         }
         return allTags.count > length ? Array(allTags[0...length]) : allTags
     }
+}
+
+public struct Description: Codable {
+    var _content: String?
 }

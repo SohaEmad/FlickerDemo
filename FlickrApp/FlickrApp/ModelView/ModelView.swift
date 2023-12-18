@@ -11,91 +11,65 @@ class ModelView: ObservableObject {
     
     @Published var searchText: String = "Yorkshire"
     @Published var user: User?
-    @Published var userUrl: String = "https://www.flickr.com/photos/dswindler/"
+    @Published var userName : String = Constatnts.DEFAULT_USER
+    var userUrl: String = ""
     @Published var photos: [Photo] = []
     @Published var userID = ""
     private var pageCount = 1
+    private var network: Network
     
+    init(){
+        network = Network()
+        userUrl = Constatnts.USER_URL + userName
+    }
+    
+    /**
+     get user ID using the currently defeined user name
+     */
     
     @MainActor func getUserID() {
-        let url = URL(string: "\(Constatnts.FLICKR_GET_USER)&url=\(userUrl)&\(Constatnts.FORMAT)")!
+        userUrl = Constatnts.USER_URL + userName
+        print(userUrl)
         Task{
-            do{
-                let (data, response) = try await URLSession.shared.data(from: url)
-                guard let response =  response as? HTTPURLResponse, response.statusCode == 200 else {
-                    throw RetreiveError.invalidURL
+            do {
+                guard let newUser = try await self.network.getUserId(userUrl: userUrl) else {
+                    return
                 }
-                do {
-                    let decoder = JSONDecoder()
-                    user =  try decoder.decode(User.self, from: data)
-                    user?.profilePhoto = String(format: Constatnts.PROFILE_PHOTO, user?.id ?? Constatnts.USER_ID)
-                }
-                catch {
-                    throw RetreiveError.invalidresponse
-                }
-            } catch {
-                throw RetreiveError.invalidData
+                self.user = newUser
+                user?.profilePhoto = String(format: Constatnts.PROFILE_PHOTO, user?.id ?? Constatnts.USER_ID)
+            }
+            catch {
+                throw RetreiveError.invalidresponse
             }
         }
         self.userID = user?.id ?? Constatnts.USER_ID
     }
     
     
+    /**
+     get  search words based list of photos
+     
+     - Parameters:
+     useUserId: a Boolean that define if the photos will use user Id filter or not
+     */
     @MainActor func getPhotos(useUserId: Bool = false) {
-        guard let url = buildUrl(searchText: searchText, useUserId: useUserId) else {
-            return
-        }
         Task{
             do {
-                let (data, response) = try await URLSession.shared.data(from: url)
-                
-                guard let response =  response as? HTTPURLResponse, response.statusCode == 200 else {
-                    throw RetreiveError.invalidresponse
+                guard let newPhotos = try? await self.network.getPhotos(searchText: searchText, UserId: useUserId ? userID : "", pageCount: pageCount) else {
+                    return
                 }
-                do {
-                    let decoder = JSONDecoder()
-                    let response =  try decoder.decode(Response.self, from: data)
-                    if response.photos.total > 0 {
-                        photos = response.photos.getValidPhotos()
-                    }
-                }
-                catch {
-                    throw RetreiveError.invalidresponse
-                }
-            } catch {
-                throw RetreiveError.invalidData
+                self.photos = newPhotos
             }
         }
     }
     
+    /**
+     a function that provids endless scroll view functionaliy by loading more photos once the user reached the end of the scroll view
+     */
+    
     @MainActor func loadMorePhotos(usingUserId: Bool = false) {
         pageCount += 1
         getPhotos(useUserId: usingUserId)
-    }
-    
-    private func buildUrl(searchText: String, useUserId: Bool) -> URL? {
-        var _searchText = searchText
-        if( searchText.isEmpty) {
-            return nil;
-        }
-        var text = _searchText.components(separatedBy: ",")
-        var _cat = "";
-        if(text.count > 1){
-            _searchText = text[text.count-1].trimmingCharacters(in: .whitespacesAndNewlines);
-            text.removeLast()
-            _cat = text.joined(separator: ",")
-        } else {
-            _searchText = text[0].trimmingCharacters(in: .whitespacesAndNewlines)
-        }
-        
-        if useUserId {
-            let userIdEncoded = Constatnts.USER_ID.urlEncoded ?? ""
-            return URL(string: "\(Constatnts.FLICKR_GET_PHOTOS)&user_id=\(userIdEncoded)&\(Constatnts.EXTRAS)&page=\(pageCount)&\(Constatnts.FORMAT)")
-        }
-        
-        let safeText = "&text=\(_searchText.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)!)"
-        let tags = "&tags=\(_cat.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)!)"
-        return URL(string: "\(Constatnts.FLICKR_GET_PHOTOS)\(tags)\(safeText)&\(Constatnts.EXTRAS)&page=\(pageCount)&\(Constatnts.FORMAT)")
     }
 }
 
@@ -112,3 +86,5 @@ extension String {
         return self.addingPercentEncoding(withAllowedCharacters: allowedCharacterSet)
     }
 }
+
+
