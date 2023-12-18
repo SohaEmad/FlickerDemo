@@ -10,14 +10,17 @@ API Resource [Flickr api](https://www.flickr.com/services/api/flickr.photos.sear
 
 
 ### APP Preview/Screens:
-<img src="https://github.com/SohaEmad/FlickerDemo/blob/main/photos/splash_screen.gif" width="200">
-
 
 1- splash screen 
+<img src="https://github.com/SohaEmad/FlickerDemo/blob/main/photos/splash_screen.gif" width="200">
 2- search view 
+<img src="https://github.com/SohaEmad/FlickerDemo/blob/main/photos/search_view.gif" width="200">
 3- user view
+<img src="https://github.com/SohaEmad/FlickerDemo/blob/main/photos/user_view.gif" width="200">
 4- user input view 
+<img src="https://github.com/SohaEmad/FlickerDemo/blob/main/photos/edit_user.gif" width="200">
 5- detalis view 
+<img src="https://github.com/SohaEmad/FlickerDemo/blob/main/photos/details_screen.gif" width="200">
 
 To search: enter a category, then free text deliminated by a comma e.g.
 
