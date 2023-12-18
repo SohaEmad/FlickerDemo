@@ -25,7 +25,7 @@ API Resource [Flickr api](https://www.flickr.com/services/api/flickr.photos.sear
 
 4- user input view 
 
-<img src="https://github.com/SohaEmad/FlickerDemo/blob/main/photos/edit_user.gif" width="200">
+<img src="https://github.com/SohaEmad/FlickerDemo/blob/main/photos/another_user.gif" width="200">
 
 5- detalis view 
 
