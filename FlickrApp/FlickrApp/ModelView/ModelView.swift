@@ -20,7 +20,6 @@ class ModelView: ObservableObject {
     
     init(){
         network = Network()
-        userUrl = Constatnts.USER_URL + userName
     }
     
     /**
@@ -28,15 +27,14 @@ class ModelView: ObservableObject {
      */
     
     @MainActor func getUserID() {
-        userUrl = Constatnts.USER_URL + userName
-        print(userUrl)
         Task{
             do {
-                guard let newUser = try await self.network.getUserId(userUrl: userUrl) else {
+                guard let newUser = try await self.network.getUserId(userName: userName) else {
                     return
                 }
                 self.user = newUser
                 user?.profilePhoto = String(format: Constatnts.PROFILE_PHOTO, user?.id ?? Constatnts.USER_ID)
+                print(user?.profilePhoto)
             }
             catch {
                 throw RetreiveError.invalidresponse
@@ -54,6 +52,9 @@ class ModelView: ObservableObject {
      */
     @MainActor func getPhotos(useUserId: Bool = false) {
         Task{
+            if useUserId == true {
+                self.getUserID()
+            }
             do {
                 guard let newPhotos = try? await self.network.getPhotos(searchText: searchText, UserId: useUserId ? userID : "", pageCount: pageCount) else {
                     return

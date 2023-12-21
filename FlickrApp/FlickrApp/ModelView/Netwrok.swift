@@ -26,8 +26,9 @@ class Network {
         }
     }
     
-    func getUserData(userUrl : String) async throws -> Data? {
-        guard  let url = URL(string: "\(Constatnts.FLICKR_GET_USER)&url=\(userUrl)&\(Constatnts.FORMAT)") else {
+    func getUserData(userName : String) async throws -> Data? {
+        print(String(format: Constatnts.FLICKR_GET_USER_BY_NAME, userName))
+        guard  let url = URL(string: String(format: Constatnts.FLICKR_GET_USER_BY_NAME, userName)) else {
             return nil
         }
         do{
@@ -35,23 +36,25 @@ class Network {
             guard let response =  response as? HTTPURLResponse, response.statusCode == 200 else {
                 throw RetreiveError.invalidURL
             }
+            print(String(data: data, encoding: .utf8))
             return data
-        } catch {
+        } catch let error {
+            print(error)
             throw RetreiveError.invalidData
         }
     }
     
     
-    func getUserId(userUrl: String) async throws -> User? {
+    func getUserId(userName: String) async throws -> User? {
         do {
-            guard let data = try await self.getUserData(userUrl: userUrl) else {
+            guard let data = try await self.getUserData(userName: userName) else {
                 return nil
             }
             let decoder = JSONDecoder()
             let userResponse =  try decoder.decode(UserResponse.self, from: data)
             return userResponse.user
         }
-        catch let error{
+        catch let error {
             print(error)
             throw RetreiveError.invalidresponse
         }

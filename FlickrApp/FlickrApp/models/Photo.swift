@@ -19,8 +19,11 @@ public struct Photo: Codable, Identifiable{
     var url_l: String?
     var height_l: Int?
     var width_l: Int?
+    var datetaken: String = ""
+    var ownername: String?
     var description: Description?
     var tags: String?
+    
     
     /**
      get all or certain number of tags of a certain photo
@@ -28,11 +31,15 @@ public struct Photo: Codable, Identifiable{
      - Returns: an array of string that include the photo tags the maximum length of maxLength or tags array length
      */
     func getTags(_ maxLength: Int? = nil)-> [String]{
-        var allTags = (tags?.components(separatedBy: " ").filter({ $0 != ""}) ?? []).sorted { $0.count < $1.count}
+        let allTags = (tags?.components(separatedBy: " ").filter({ $0 != ""}) ?? []).sorted { $0.count < $1.count}
         guard let length = maxLength else {
             return allTags
         }
         return allTags.count > length ? Array(allTags[0...length]) : allTags
+    }
+    
+    func getDate() -> String {
+        return datetaken.components(separatedBy: " ").first ?? " "
     }
 }
 

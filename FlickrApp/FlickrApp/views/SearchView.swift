@@ -49,6 +49,9 @@ struct SearchView: View {
                     
                     HStack{
                         Spacer()
+
+                        Text(modelView.user?.id ?? "")
+                        Spacer()
                         
                         NavigationLink(destination: UserView(modelView: modelView)) {
                             AsyncImage(

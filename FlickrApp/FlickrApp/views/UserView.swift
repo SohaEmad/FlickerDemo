@@ -13,19 +13,18 @@ struct UserView: View {
     
     var body: some View {
         VStack {
-            Text(modelView.user?.username?._content ?? "User name")
-            AsyncImage(url: URL(string: String(format:Constatnts.PROFILE_PHOTO,modelView.user?.id ?? Constatnts.USER_ID))){ image in
-                image
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .clipShape(.circle)
-                    .frame(width: 100, height: 100)
-                
-            } placeholder: {
-                Circle()
-                    .frame(width: 30, height: 30)
-            }
             NavigationStack {
+                AsyncImage(url: URL(string: String(format:Constatnts.PROFILE_PHOTO,modelView.user?.id ?? Constatnts.USER_ID))){ image in
+                    image
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .clipShape(.circle)
+                        .frame(width: 100, height: 100)
+                    
+                } placeholder: {
+                    Circle()
+                        .frame(width: 30, height: 30)
+                }
                 List {
                     ForEach(modelView.photos) { photo in
                         VStack{
@@ -51,7 +50,6 @@ struct UserView: View {
             
         } .onAppear{
             modelView.getPhotos(useUserId: true)
-            modelView.getUserID()
         }
     }
 }
