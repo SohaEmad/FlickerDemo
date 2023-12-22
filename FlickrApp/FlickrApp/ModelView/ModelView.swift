@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CoreLocation
 
 class ModelView: ObservableObject {
     
@@ -17,10 +18,13 @@ class ModelView: ObservableObject {
     @Published var userID = ""
     private var pageCount = 1
     private var network: Network
+    @Published var allTags = false   
+    @Published var location: CLLocation? 
     
     init(){
         network = Network()
         userUrl = Constatnts.USER_URL + userName
+        
     }
     
     /**
@@ -29,7 +33,6 @@ class ModelView: ObservableObject {
     
     @MainActor func getUserID() {
         userUrl = Constatnts.USER_URL + userName
-        print(userUrl)
         Task{
             do {
                 guard let newUser = try await self.network.getUserId(userUrl: userUrl) else {
@@ -52,10 +55,22 @@ class ModelView: ObservableObject {
      - Parameters:
      useUserId: a Boolean that define if the photos will use user Id filter or not
      */
-    @MainActor func getPhotos(useUserId: Bool = false) {
+    @MainActor func getPhotos(useUserId: Bool = false, allTags: Bool = false, location: CLLocation? = nil) {
         Task{
             do {
-                guard let newPhotos = try? await self.network.getPhotos(searchText: searchText, UserId: useUserId ? userID : "", pageCount: pageCount) else {
+                guard let newPhotos = try? await self.network.getPhotos(searchText: searchText, UserId: useUserId ? userID : "", pageCount: pageCount, allTags: allTags, location: location) else {
+                    return
+                }
+                self.photos = newPhotos
+            }
+        }
+    }
+    
+    
+    @MainActor func getPhotosBy(location: CLLocation) {
+        Task{
+            do {
+                guard let newPhotos = try? await self.network.getPhotos(searchText: searchText, UserId: "", pageCount: pageCount) else {
                     return
                 }
                 self.photos = newPhotos

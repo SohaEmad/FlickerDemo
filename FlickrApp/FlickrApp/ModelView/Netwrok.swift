@@ -7,11 +7,12 @@
 
 import SwiftUI
 import Foundation
+import CoreLocation
 
 class Network {
     
-    func getPhotosData(searchText: String, useUserId: String, pageCount: Int) async throws -> Data? {
-        guard let url = buildGetPhotosUrl(searchText: searchText, useUserId: useUserId, pageCount: pageCount) else {
+    func getPhotosData(searchText: String, useUserId: String, pageCount: Int, allTags: Bool, location: CLLocation? = nil) async throws -> Data? {
+        guard let url = buildGetPhotosUrl(searchText: searchText, useUserId: useUserId, pageCount: pageCount, allTags: allTags, location: location) else {
             return nil
         }
         do {
@@ -51,16 +52,15 @@ class Network {
             let userResponse =  try decoder.decode(UserResponse.self, from: data)
             return userResponse.user
         }
-        catch let error{
-            print(error)
+        catch {
             throw RetreiveError.invalidresponse
         }
     }
     
     
-    func getPhotos(searchText: String, UserId: String, pageCount: Int) async throws -> [Photo] {
+    func getPhotos(searchText: String, UserId: String, pageCount: Int, allTags: Bool = false, location: CLLocation? = nil) async throws -> [Photo] {
         do {
-            guard let data = try? await self.getPhotosData(searchText: searchText, useUserId: UserId, pageCount: pageCount) else {
+            guard let data = try? await self.getPhotosData(searchText: searchText, useUserId: UserId, pageCount: pageCount, allTags: allTags, location: location) else {
                 return []
             }
             let decoder = JSONDecoder()
@@ -76,30 +76,28 @@ class Network {
     }
     
     
-    
-    private func buildGetPhotosUrl(searchText: String, useUserId: String, pageCount: Int) -> URL? {
+    private func buildGetPhotosUrl(searchText: String, useUserId: String, pageCount: Int, allTags: Bool = false, location: CLLocation? = nil) -> URL? {
         var _searchText = searchText
         if( searchText.isEmpty) {
-            return nil;
+            _searchText = Constatnts.DEFAULT_SEARCH_TEXT
         }
         var text = _searchText.components(separatedBy: ",")
-        var _cat = "";
         if(text.count > 1){
             _searchText = text[text.count-1].trimmingCharacters(in: .whitespacesAndNewlines);
             text.removeLast()
-            _cat = text.joined(separator: ",")
         } else {
             _searchText = text[0].trimmingCharacters(in: .whitespacesAndNewlines)
         }
         
         if useUserId != "" {
             let userIdEncoded = useUserId.urlEncoded ?? ""
-            return URL(string: "\(Constatnts.FLICKR_GET_PHOTOS)&user_id=\(userIdEncoded)&\(Constatnts.EXTRAS)&page=\(pageCount)&\(Constatnts.FORMAT)")
+            return URL(string:
+                        "\(Constatnts.FLICKR_GET_PHOTOS)&user_id=\(userIdEncoded)&tag_mode=any&\(Constatnts.EXTRAS)&page=\(pageCount)&\(Constatnts.FORMAT)")
         }
         
-        let safeText = "&text=\(_searchText.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)!)"
-        let tags = "&tags=\(_cat.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)!)"
-        return URL(string: "\(Constatnts.FLICKR_GET_PHOTOS)\(tags)\(safeText)&\(Constatnts.EXTRAS)&page=\(pageCount)&\(Constatnts.FORMAT)")
+        let tags = "&tags=\(_searchText.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)!)"
+        let locationString = location != nil ? "lat=\(location?.coordinate.latitude ?? 0.44 )&lon=\(location?.coordinate.longitude ?? 51.32 )&" : ""
+        return URL(string: "\(Constatnts.FLICKR_GET_PHOTOS)\(tags)&\(Constatnts.EXTRAS)&page=\(pageCount)&tag_mode=\(allTags ? "all" : "any")&\(locationString)\(Constatnts.FORMAT)")
     }
     
     

@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import TagLayoutView
 
 struct DetailsView: View {
     var photo: Photo
@@ -33,8 +32,9 @@ struct DetailsView: View {
                 .fontWeight(.semibold)
                 .scaledToFit()
                 .minimumScaleFactor(0.5)
-            Text("by: \(photo.owner)")
+            Text("by: \(photo.ownername ?? photo.owner) 🗓️ \(photo.getDate())")
                 .font(.subheadline)
+            Text(photo.geo ?? "")
             let tags = photo.getTags()
             if !tags.isEmpty{
                 TagView(tags: tags)

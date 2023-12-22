@@ -18,7 +18,7 @@ struct LoadingView: View {
     let timer = Timer.publish(every: 0.5, on: .main, in: .common).autoconnect()
     var body: some View {
         if isActive {
-            SearchView(modelView: modelView)
+            MainView(modelView: modelView)
         } else {
             VStack{
                 Text("Flickr")
