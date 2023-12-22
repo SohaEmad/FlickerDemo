@@ -12,68 +12,54 @@ struct SearchView: View {
     @ObservedObject var modelView: ModelView
     
     var body: some View {
-        NavigationStack {
-            List {
-                ForEach(modelView.photos) { photo in
-                    VStack{
-                        ImageView(photo: photo)
-                            .background(
-                                NavigationLink("", destination: DetailsView(photo: photo))
-                                    .opacity(0)
-                            )
-                    }
-                }
-                Color.clear
-                    .frame(width: 0, height: 0, alignment: .bottom)
-                    .onAppear {
-                        modelView.loadMorePhotos()
-                    }
-            }
-            .edgesIgnoringSafeArea(.horizontal)
-            .listStyle(GroupedListStyle())
-            .listRowSeparator(.hidden,
-                              edges: .bottom)
-            .padding(.bottom)
-            
-            .toolbar {
-                ToolbarItem(placement: .topBarLeading) {
-                    NavigationLink(destination: UserUrlInputView(modelView: modelView)) {
-                        
-                        Image("home")
-                            .resizable()
-                            .frame(width: 40)
-                    }
-                }
+        VStack{
+            NavigationStack {
+                ImageListView(modelView: modelView)
+                    .edgesIgnoringSafeArea(.horizontal)
+                    .listStyle(GroupedListStyle())
+                    .listRowSeparator(.hidden,
+                                      edges: .bottom)
+                    .padding(.bottom)
                 
-                ToolbarItem(placement: .topBarTrailing) {
-                    
-                    HStack{
-                        Spacer()
-
-                        Text(modelView.user?.id ?? "")
-                        Spacer()
-                        
-                        NavigationLink(destination: UserView(modelView: modelView)) {
-                            AsyncImage(
-                                url: URL(string:modelView.user?.profilePhoto ?? ""),
-                                content: { image in
-                                    image.resizable()
-                                        .aspectRatio(contentMode: .fit)
-                                        .scaledToFit()
-                                        .clipShape(.circle)
-                                },
-                                placeholder: {
-                                    Image(systemName: "person")
-                                        .scaledToFit()
-                                        .frame(height: 90)
-                                        .clipped()
-                                })
+                    .toolbar {
+                        ToolbarItem(placement: .topBarLeading) {
+                            NavigationLink(destination: UserUrlInputView(modelView: modelView)) {
+                                
+                                Image("home")
+                                    .resizable()
+                                    .frame(width: 40)
+                            }
                         }
-                    }
-                }
-                
-            }
-            .searchable(text: $modelView.searchText)
+                        
+                        ToolbarItem(placement: .topBarTrailing) {
+                            
+                            HStack{
+                                Spacer()
+                                
+                                Text("User Id : \(modelView.user?.id ?? "")")
+                                Spacer()
+                                
+                                NavigationLink(destination: UserView(modelView: modelView)) {
+                                    AsyncImage(
+                                        url: URL(string:modelView.user?.profilePhoto ?? ""),
+                                        content: { image in
+                                            image.resizable()
+                                                .aspectRatio(contentMode: .fit)
+                                                .scaledToFit()
+                                                .clipShape(.circle)
+                                        },
+                                        placeholder: {
+                                            Image(systemName: "person")
+                                                .scaledToFit()
+                                                .frame(height: 90)
+                                                .clipped()
+                                        })
+                                }
+                            }
+                        }
+                        
+                    }    }
+            .searchable(text: $modelView.searchText, placement: .navigationBarDrawer(displayMode: .automatic))
             .onChange(of: modelView.searchText) { _ in
                 modelView.getPhotos()
             }
@@ -83,10 +69,10 @@ struct SearchView: View {
                     modelView.getUserID()
                 }
             }
-        }
-    }
+            Toggle("  Use all tags", isOn: $modelView.allTags)
+            
+        }}
 }
-
 
 #Preview {
     SearchView(modelView: ModelView())

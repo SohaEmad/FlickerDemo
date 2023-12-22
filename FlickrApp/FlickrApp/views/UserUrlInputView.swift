@@ -12,14 +12,13 @@ struct UserUrlInputView: View {
     var body: some View {
         NavigationView {
             VStack{
-//                UserView(modelView: modelView)
-                Text(modelView.userID)
+                UserView(modelView: modelView)
             }
         }
         .searchable(text: $modelView.userName)
         .onChange(of: modelView.userName) { _ in
             modelView.getUserID()
-//            modelView.getPhotos(useUserId: true)
+            modelView.getPhotos(useUserId: true)
         }
         .onAppear{
             modelView.getUserID()

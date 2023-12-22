@@ -12,7 +12,7 @@ struct MainView: View {
     @ObservedObject var modelView: ModelView
     var body: some View {
         TabView {
-            SearchView(modelView: modelView)
+            HomeView(modelView: modelView)
                 .tabItem {
                     Label("", systemImage: "house")
                 }
@@ -22,7 +22,7 @@ struct MainView: View {
                     Label("", systemImage: "magnifyingglass")
                 }
             
-            SearchView(modelView: modelView)
+            LocationBasedView(modelView: modelView)
                 .tabItem {
                     Label("", systemImage: "mappin.and.ellipse")
                 }

@@ -34,6 +34,7 @@ struct DetailsView: View {
                 .minimumScaleFactor(0.5)
             Text("by: \(photo.ownername ?? photo.owner) 🗓️ \(photo.getDate())")
                 .font(.subheadline)
+            Text(photo.geo ?? "")
             let tags = photo.getTags()
             if !tags.isEmpty{
                 TagView(tags: tags)

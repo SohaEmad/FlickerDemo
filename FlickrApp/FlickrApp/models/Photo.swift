@@ -23,6 +23,7 @@ public struct Photo: Codable, Identifiable{
     var ownername: String?
     var description: Description?
     var tags: String?
+    var geo: String?
     
     
     /**
