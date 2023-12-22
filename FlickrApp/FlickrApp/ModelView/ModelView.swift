@@ -33,7 +33,6 @@ class ModelView: ObservableObject {
     
     @MainActor func getUserID() {
         userUrl = Constatnts.USER_URL + userName
-        
         Task{
             do {
                 guard let newUser = try await self.network.getUserId(userUrl: userUrl) else {
@@ -58,9 +57,6 @@ class ModelView: ObservableObject {
      */
     @MainActor func getPhotos(useUserId: Bool = false, allTags: Bool = false, location: CLLocation? = nil) {
         Task{
-            if useUserId == true {
-                self.getUserID()
-            }
             do {
                 guard let newPhotos = try? await self.network.getPhotos(searchText: searchText, UserId: useUserId ? userID : "", pageCount: pageCount, allTags: allTags, location: location) else {
                     return

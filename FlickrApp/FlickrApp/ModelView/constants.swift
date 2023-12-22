@@ -14,6 +14,7 @@ open class Constatnts{
     public static let USER_URL = "https://www.flickr.com/photos/"
 
     public static let DEFAULT_USER = "dswindler"
+    public static let DEFAULT_SEARCH_TEXT = "Yorkshire"
     
    public static let FLICKR_GET_PHOTOS = "https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=\(APIKey)&safe_search=safe"
     

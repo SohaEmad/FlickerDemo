@@ -79,7 +79,7 @@ class Network {
     private func buildGetPhotosUrl(searchText: String, useUserId: String, pageCount: Int, allTags: Bool = false, location: CLLocation? = nil) -> URL? {
         var _searchText = searchText
         if( searchText.isEmpty) {
-            return nil;
+            _searchText = Constatnts.DEFAULT_SEARCH_TEXT
         }
         var text = _searchText.components(separatedBy: ",")
         if(text.count > 1){
