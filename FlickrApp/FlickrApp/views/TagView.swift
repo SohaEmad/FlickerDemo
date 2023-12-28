@@ -51,12 +51,12 @@ struct TagView: View {
     }
 
     private func item(for text: String) -> some View {
-        Text(text)
-            .padding()
-            .lineLimit(1)
-            .frame(height: 36)
-            .cornerRadius(18)
-            .overlay(Capsule().stroke(.blue, lineWidth: 1))
+            Text(text)
+                .padding()
+                .lineLimit(1)
+                .frame(height: 36)
+                .cornerRadius(18)
+                .overlay(Capsule().stroke(.blue, lineWidth: 1))
     }
 
     private func viewHeightReader(_ binding: Binding<CGFloat>) -> some View {

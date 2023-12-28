@@ -7,270 +7,175 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "8A949455-2EE6-4D66-A4BC-D868FFC1CA05"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FlickrApp/views/UserUrlInputView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "20"
-            endingLineNumber = "20"
-            landmarkName = "body"
-            landmarkType = "24">
-            <Locations>
-               <Location
-                  uuid = "8A949455-2EE6-4D66-A4BC-D868FFC1CA05 - d4e864df78d175de"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #2 (Swift.String) -&gt; () in FlickrApp.UserUrlInputView.body.getter : some"
-                  moduleName = "FlickrApp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sohaahmed/CS193-swiftUI/FlickerDemo/FlickrApp/FlickrApp/views/UserUrlInputView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "20"
-                  endingLineNumber = "20"
-                  offsetFromSymbolStart = "88">
-               </Location>
-               <Location
-                  uuid = "8A949455-2EE6-4D66-A4BC-D868FFC1CA05 - d4e864df78d175de"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #2 (Swift.String) -&gt; () in FlickrApp.UserUrlInputView.body.getter : some"
-                  moduleName = "FlickrApp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sohaahmed/CS193-swiftUI/FlickerDemo/FlickrApp/FlickrApp/views/UserUrlInputView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "20"
-                  endingLineNumber = "20"
-                  offsetFromSymbolStart = "96">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "E5BBF08C-A7E7-4741-99BF-C86D0CE5C6BA"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FlickrApp/ModelView/ModelView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "42"
-            endingLineNumber = "42"
-            landmarkName = "getUserID()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "33BC03FC-F753-4D4D-A2CD-AD09E187CB3A"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FlickrApp/views/SearchView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "69"
-            endingLineNumber = "69"
-            landmarkName = "body"
-            landmarkType = "24">
-            <Locations>
-               <Location
-                  uuid = "33BC03FC-F753-4D4D-A2CD-AD09E187CB3A - d28e78c4302dc531"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(1) suspend resume partial function for closure #1 @Sendable () async -&gt; () in closure #4 () -&gt; () in closure #1 () -&gt; &lt;&lt;opaque return type of SwiftUI.View.onAppear(perform: Swift.Optional&lt;() -&gt; ()&gt;) -&gt; some&gt;&gt;.0 in FlickrApp.SearchView.body.getter : some"
-                  moduleName = "FlickrApp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sohaahmed/CS193-swiftUI/FlickerDemo/FlickrApp/FlickrApp/views/SearchView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "83"
-                  endingLineNumber = "83"
-                  offsetFromSymbolStart = "140">
-               </Location>
-               <Location
-                  uuid = "33BC03FC-F753-4D4D-A2CD-AD09E187CB3A - e4e5e71aead311f0"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(1) suspend resume partial function for closure #1 @Sendable () async -&gt; () in closure #2 () -&gt; () in FlickrApp.SearchView.body.getter : some"
-                  moduleName = "FlickrApp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sohaahmed/CS193-swiftUI/FlickerDemo/FlickrApp/FlickrApp/views/SearchView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "25"
-                  endingLineNumber = "25"
-                  offsetFromSymbolStart = "160">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "65D9D0FB-042D-4E2B-AEA7-2B28A805963F"
+            uuid = "2F55DB06-0903-40F3-AC62-F3D9FF5791FE"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FlickrApp/ModelView/Netwrok.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "41"
-            endingLineNumber = "41"
-            landmarkName = "getUserData(userUrl:)"
+            startingLineNumber = "84"
+            endingLineNumber = "84"
+            landmarkName = "buildGetPhotosUrl(searchText:useUserId:pageCount:allTags:location:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "65D9D0FB-042D-4E2B-AEA7-2B28A805963F - 7b9ee03477359ab4"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(1) suspend resume partial function for FlickrApp.Network.getUserData(userUrl: Swift.String) async throws -&gt; Swift.Optional&lt;Foundation.Data&gt;"
-                  moduleName = "FlickrApp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sohaahmed/CS193-swiftUI/FlickerDemo/FlickrApp/FlickrApp/ModelView/Netwrok.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "42"
-                  endingLineNumber = "42"
-                  offsetFromSymbolStart = "940">
-               </Location>
-               <Location
-                  uuid = "65D9D0FB-042D-4E2B-AEA7-2B28A805963F - 38b33fa312ac6b6"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(3) suspend resume partial function for FlickrApp.Network.getUserData(userUrl: Swift.String) async throws -&gt; Swift.Optional&lt;Foundation.Data&gt;"
-                  moduleName = "FlickrApp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sohaahmed/CS193-swiftUI/FlickerDemo/FlickrApp/FlickrApp/ModelView/Netwrok.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "42"
-                  endingLineNumber = "42"
-                  offsetFromSymbolStart = "620">
-               </Location>
-               <Location
-                  uuid = "65D9D0FB-042D-4E2B-AEA7-2B28A805963F - 38b33fa312ac691"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(3) suspend resume partial function for FlickrApp.Network.getUserData(userUrl: Swift.String) async throws -&gt; Swift.Optional&lt;Foundation.Data&gt;"
-                  moduleName = "FlickrApp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sohaahmed/CS193-swiftUI/FlickerDemo/FlickrApp/FlickrApp/ModelView/Netwrok.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "41"
-                  endingLineNumber = "41"
-                  offsetFromSymbolStart = "944">
-               </Location>
-               <Location
-                  uuid = "65D9D0FB-042D-4E2B-AEA7-2B28A805963F - 6f8daadcdc5f50ae"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(4) suspend resume partial function for FlickrApp.Network.getUserData(userUrl: Swift.String) async throws -&gt; Swift.Optional&lt;Foundation.Data&gt;"
-                  moduleName = "FlickrApp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sohaahmed/CS193-swiftUI/FlickerDemo/FlickrApp/FlickrApp/ModelView/Netwrok.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "41"
-                  endingLineNumber = "41"
-                  offsetFromSymbolStart = "180">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "F41DB871-6FC1-4F93-B356-90A3795619BE"
+            uuid = "49871910-A734-43CE-A188-CDC6A3C3172B"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FlickrApp/ModelView/Netwrok.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "39"
-            endingLineNumber = "39"
-            landmarkName = "getUserData(userUrl:)"
+            startingLineNumber = "83"
+            endingLineNumber = "83"
+            landmarkName = "buildGetPhotosUrl(searchText:useUserId:pageCount:allTags:location:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "F41DB871-6FC1-4F93-B356-90A3795619BE - 38b33fa312ac6d3"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(3) suspend resume partial function for FlickrApp.Network.getUserData(userUrl: Swift.String) async throws -&gt; Swift.Optional&lt;Foundation.Data&gt;"
-                  moduleName = "FlickrApp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sohaahmed/CS193-swiftUI/FlickerDemo/FlickrApp/FlickrApp/ModelView/Netwrok.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "39"
-                  endingLineNumber = "39"
-                  offsetFromSymbolStart = "908">
-               </Location>
-               <Location
-                  uuid = "F41DB871-6FC1-4F93-B356-90A3795619BE - 6f8daadcdc5f50ec"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(4) suspend resume partial function for FlickrApp.Network.getUserData(userUrl: Swift.String) async throws -&gt; Swift.Optional&lt;Foundation.Data&gt;"
-                  moduleName = "FlickrApp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sohaahmed/CS193-swiftUI/FlickerDemo/FlickrApp/FlickrApp/ModelView/Netwrok.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "39"
-                  endingLineNumber = "39"
-                  offsetFromSymbolStart = "148">
-               </Location>
-               <Location
-                  uuid = "F41DB871-6FC1-4F93-B356-90A3795619BE - 38b33fa312ac6d3"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(3) suspend resume partial function for FlickrApp.Network.getUserData(userUrl: Swift.String) async throws -&gt; Swift.Optional&lt;Foundation.Data&gt;"
-                  moduleName = "FlickrApp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sohaahmed/CS193-swiftUI/FlickerDemo/FlickrApp/FlickrApp/ModelView/Netwrok.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "39"
-                  endingLineNumber = "39"
-                  offsetFromSymbolStart = "516">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "AE53F044-468F-4D02-8D92-4784F8017460"
+            uuid = "5038F0FE-52D8-46C7-9FFC-40ABB36734E1"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "FlickrApp/views/SearchView.swift"
+            filePath = "FlickrApp/ModelView/Netwrok.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "68"
-            endingLineNumber = "68"
-            landmarkName = "body"
-            landmarkType = "24">
+            startingLineNumber = "86"
+            endingLineNumber = "86"
+            landmarkName = "buildGetPhotosUrl(searchText:useUserId:pageCount:allTags:location:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "70155590-E263-46CF-9EF9-4D19D726B008"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FlickrApp/ModelView/Netwrok.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "88"
+            endingLineNumber = "88"
+            landmarkName = "buildGetPhotosUrl(searchText:useUserId:pageCount:allTags:location:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1134425E-8B09-4E48-A12B-51E620FC5450"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FlickrApp/ModelView/Netwrok.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "98"
+            endingLineNumber = "98"
+            landmarkName = "buildGetPhotosUrl(searchText:useUserId:pageCount:allTags:location:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1D555FAA-42DC-48D1-A8F1-EDD1E3D314CE"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FlickrApp/ModelView/Netwrok.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "103"
+            endingLineNumber = "103"
+            landmarkName = "buildGetPhotosUrl(searchText:useUserId:pageCount:allTags:location:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7C6B6D9B-0C7C-441F-8C1D-2FF47334F4B1"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FlickrApp/ModelView/Netwrok.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "18"
+            endingLineNumber = "18"
+            landmarkName = "getPhotosData(searchText:useUserId:pageCount:allTags:location:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "7C6B6D9B-0C7C-441F-8C1D-2FF47334F4B1 - 661c591279992865"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for FlickrApp.Network.getPhotosData(searchText: Swift.String, useUserId: Swift.String, pageCount: Swift.Int, allTags: Swift.Bool, location: Swift.Optional&lt;__C.CLLocation&gt;) async throws -&gt; Swift.Optional&lt;Foundation.Data&gt;"
+                  moduleName = "FlickrApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sohaahmed/CS193-swiftUI/FlickerDemo/FlickrApp/FlickrApp/ModelView/Netwrok.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "19"
+                  endingLineNumber = "19"
+                  offsetFromSymbolStart = "368">
+               </Location>
+               <Location
+                  uuid = "7C6B6D9B-0C7C-441F-8C1D-2FF47334F4B1 - f2133850848a59b3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(2) await resume partial function for FlickrApp.Network.getPhotosData(searchText: Swift.String, useUserId: Swift.String, pageCount: Swift.Int, allTags: Swift.Bool, location: Swift.Optional&lt;__C.CLLocation&gt;) async throws -&gt; Swift.Optional&lt;Foundation.Data&gt;"
+                  moduleName = "FlickrApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sohaahmed/CS193-swiftUI/FlickerDemo/FlickrApp/FlickrApp/ModelView/Netwrok.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "19"
+                  endingLineNumber = "19"
+                  offsetFromSymbolStart = "40">
+               </Location>
+               <Location
+                  uuid = "7C6B6D9B-0C7C-441F-8C1D-2FF47334F4B1 - 4bffb3369f7fec67"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for FlickrApp.Network.getPhotosData(searchText: Swift.String, useUserId: Swift.String, pageCount: Swift.Int, allTags: Swift.Bool, location: Swift.Optional&lt;__C.CLLocation&gt;) async throws -&gt; Swift.Optional&lt;Foundation.Data&gt;"
+                  moduleName = "FlickrApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sohaahmed/CS193-swiftUI/FlickerDemo/FlickrApp/FlickrApp/ModelView/Netwrok.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "19"
+                  endingLineNumber = "19"
+                  offsetFromSymbolStart = "136">
+               </Location>
+               <Location
+                  uuid = "7C6B6D9B-0C7C-441F-8C1D-2FF47334F4B1 - 2609c628c0430e68"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(4) suspend resume partial function for FlickrApp.Network.getPhotosData(searchText: Swift.String, useUserId: Swift.String, pageCount: Swift.Int, allTags: Swift.Bool, location: Swift.Optional&lt;__C.CLLocation&gt;) async throws -&gt; Swift.Optional&lt;Foundation.Data&gt;"
+                  moduleName = "FlickrApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sohaahmed/CS193-swiftUI/FlickerDemo/FlickrApp/FlickrApp/ModelView/Netwrok.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "19"
+                  endingLineNumber = "19"
+                  offsetFromSymbolStart = "92">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

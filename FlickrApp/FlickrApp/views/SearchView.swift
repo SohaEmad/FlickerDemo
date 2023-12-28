@@ -65,7 +65,7 @@ struct SearchView: View {
             }
             .onAppear{
                 Task{
-                    modelView.getPhotos()
+                    modelView.getPhotos(useSearchTags: true)
                     modelView.getUserID()
                 }
             }

@@ -78,15 +78,19 @@ class Network {
     
     private func buildGetPhotosUrl(searchText: String, useUserId: String, pageCount: Int, allTags: Bool = false, location: CLLocation? = nil) -> URL? {
         var _searchText = searchText
-        if( searchText.isEmpty) {
-            _searchText = Constatnts.DEFAULT_SEARCH_TEXT
-        }
-        var text = _searchText.components(separatedBy: ",")
-        if(text.count > 1){
-            _searchText = text[text.count-1].trimmingCharacters(in: .whitespacesAndNewlines);
-            text.removeLast()
+        var photoService = Constatnts.FLICKR_GET_PHOTOS
+        var tags = ""
+        if searchText.isEmpty {
+            photoService = Constatnts.FLICKR_GET_Recent_PHOTOS
         } else {
-            _searchText = text[0].trimmingCharacters(in: .whitespacesAndNewlines)
+            var text = _searchText.components(separatedBy: ",")
+            if(text.count > 1){
+                _searchText = text[text.count-1].trimmingCharacters(in: .whitespacesAndNewlines);
+                text.removeLast()
+            } else {
+                _searchText = text[0].trimmingCharacters(in: .whitespacesAndNewlines)
+            }
+            tags = "&tags=\(_searchText.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)!)"
         }
         
         if useUserId != "" {
@@ -95,9 +99,8 @@ class Network {
                         "\(Constatnts.FLICKR_GET_PHOTOS)&user_id=\(userIdEncoded)&tag_mode=any&\(Constatnts.EXTRAS)&page=\(pageCount)&\(Constatnts.FORMAT)")
         }
         
-        let tags = "&tags=\(_searchText.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)!)"
         let locationString = location != nil ? "lat=\(location?.coordinate.latitude ?? 0.44 )&lon=\(location?.coordinate.longitude ?? 51.32 )&" : ""
-        return URL(string: "\(Constatnts.FLICKR_GET_PHOTOS)\(tags)&\(Constatnts.EXTRAS)&page=\(pageCount)&tag_mode=\(allTags ? "all" : "any")&\(locationString)\(Constatnts.FORMAT)")
+        return URL(string: "\(photoService)\(tags)&\(Constatnts.EXTRAS)&page=\(pageCount)&tag_mode=\(allTags ? "all" : "any")&\(locationString)\(Constatnts.FORMAT)")
     }
     
     

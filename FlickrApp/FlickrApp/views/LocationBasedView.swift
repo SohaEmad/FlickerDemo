@@ -15,10 +15,6 @@ struct LocationBasedView: View {
     
     var body: some View {
         VStack{
-            if locationProvider.curentLocaiton != nil {
-                Text("current Location:  \(locationProvider.curentLocaiton!.coordinate.latitude.description), \(locationProvider.curentLocaiton!.coordinate.longitude.description)")
-            }
-            
             if !locationProvider.authoried {
                 Text("please enable location access")
             }
