@@ -9,32 +9,42 @@ import SwiftUI
 
 struct MainView: View {
     
-    @ObservedObject var modelView: ModelView
+    @EnvironmentObject var modelView: ModelView
+    @AppStorage("selectedTab") var selectedTab: Tab = .home
+
     var body: some View {
-        TabView {
-            HomeView(modelView: modelView)
+        TabView(selection: $selectedTab) {
+            HomeView()
                 .tabItem {
                     Label("", systemImage: "house")
-                }
+                }.tag(Tab.home)
             
-            SearchView(modelView: modelView)
+            SearchView()
                 .tabItem {
                     Label("", systemImage: "magnifyingglass")
-                }
+                }.tag(Tab.search)
             
-            LocationBasedView(modelView: modelView)
+            LocationBasedView()
                 .tabItem {
                     Label("", systemImage: "mappin.and.ellipse")
-                }
+                }.tag(Tab.location)
             
-            UserUrlInputView(modelView: modelView)
+            UserUrlInputView()
                 .tabItem {
                     Label("search User", systemImage: "person")
-                }
+                }.tag(Tab.user)
         }
     }
 }
 
+enum Tab: String {
+    case home
+    case search
+    case location
+    case user
+}
+
+
 #Preview {
-    MainView(modelView: ModelView())
+    MainView()
 }

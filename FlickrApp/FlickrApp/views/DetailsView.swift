@@ -40,7 +40,7 @@ struct DetailsView: View {
                 TagView(tags: tags)
             }
             Spacer()
-
+            
             Text(photo.description?._content ?? "No description available")
                 .font(.body)
                 .fontWeight(.semibold)

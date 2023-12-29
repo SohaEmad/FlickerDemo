@@ -8,8 +8,12 @@
 import SwiftUI
 
 struct TagView: View {
+    
+    @EnvironmentObject var modelView : ModelView
     @State var tags: [String]
     @State private var totalHeight = CGFloat.zero
+    @AppStorage("selectedTab") var selectedTab: Tab = .home
+    
     var body: some View {
         VStack {
             GeometryReader { geometry in
@@ -18,7 +22,7 @@ struct TagView: View {
         }
         .frame(height: totalHeight)
     }
-
+    
     private func generateContent(in g: GeometryProxy) -> some View {
         var width = CGFloat.zero
         var height = CGFloat.zero
@@ -46,19 +50,23 @@ struct TagView: View {
                         }
                         return result
                     })
+                    .onTapGesture {
+                        modelView.searchText = tag
+                        selectedTab = .search
+                    }
             }
         }.background(viewHeightReader($totalHeight))
     }
-
+    
     private func item(for text: String) -> some View {
-            Text(text)
-                .padding()
-                .lineLimit(1)
-                .frame(height: 36)
-                .cornerRadius(18)
-                .overlay(Capsule().stroke(.blue, lineWidth: 1))
+        Text(text)
+            .padding()
+            .lineLimit(1)
+            .frame(height: 36)
+            .cornerRadius(18)
+            .overlay(Capsule().stroke(.blue, lineWidth: 1))
     }
-
+    
     private func viewHeightReader(_ binding: Binding<CGFloat>) -> some View {
         return GeometryReader { geometry -> Color in
             let rect = geometry.frame(in: .local)

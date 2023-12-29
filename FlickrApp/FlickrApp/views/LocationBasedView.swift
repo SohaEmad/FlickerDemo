@@ -11,7 +11,7 @@ import CoreLocation
 struct LocationBasedView: View {
     
     @StateObject var locationProvider = LocationProvider()
-    @ObservedObject var modelView: ModelView
+    @EnvironmentObject var modelView : ModelView
     
     var body: some View {
         VStack{
@@ -20,7 +20,7 @@ struct LocationBasedView: View {
             }
             
             NavigationStack {
-                ImageListView(modelView: modelView)
+                ImageListView()
                     .edgesIgnoringSafeArea(.horizontal)
                     .listStyle(GroupedListStyle())
                     .listRowSeparator(.hidden,
@@ -28,20 +28,20 @@ struct LocationBasedView: View {
                     .padding(.bottom)
             }
             .searchable(text: $modelView.searchText, placement: .navigationBarDrawer(displayMode: .automatic))
-                .onChange(of: modelView.searchText) { _ in
-                    modelView.getPhotos()
-                }
+            .onChange(of: modelView.searchText) { _, _ in
+                modelView.getPhotos()
+            }
             .onAppear{
                 Task{
-                    modelView.getPhotos(location: locationProvider.curentLocaiton)
+                    locationProvider.curentLocaiton?.placemark { placemark, error in
+                        if placemark != nil {
+                            modelView.searchText = "\(placemark?.city ?? ""),\(placemark?.country ?? "")"
+                            modelView.getPhotos(location: locationProvider.curentLocaiton, useSearchTags: placemark != nil)
+                        }
+                    }
                 }
+                
             }
-            
-       
         }
     }
-}
-
-#Preview {
-    LocationBasedView(modelView: ModelView())
 }

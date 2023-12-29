@@ -8,16 +8,13 @@
 import SwiftUI
 
 struct ImageListView: View {
-    @ObservedObject var modelView: ModelView
+    @EnvironmentObject var modelView : ModelView
+    
     var body: some View {
         List {
             ForEach(modelView.photos) { photo in
                 VStack{
                     ImageView(photo: photo)
-                        .background(
-                            NavigationLink("", destination: DetailsView(photo: photo))
-                                .opacity(0)
-                        )
                 }
             }
             Color.clear
@@ -28,7 +25,7 @@ struct ImageListView: View {
         }
     }
 }
-    
-    #Preview {
-        ImageListView(modelView: ModelView())
-    }
+
+#Preview {
+    ImageListView()
+}

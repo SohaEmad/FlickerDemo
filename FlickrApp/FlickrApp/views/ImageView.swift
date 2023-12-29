@@ -19,21 +19,21 @@ struct ImageView: View {
                     image.resizable()
                         .aspectRatio(contentMode: .fill)
                         .frame(maxWidth: CGFloat(photo.width_l ?? 500), maxHeight: CGFloat(photo.height_l ?? 500))
+                    Text(photo.title)
+                        .font(.caption)
+                        .bold()
+                    let tags = photo.getTags(2)
+                    if !tags.isEmpty{
+                        TagView(tags: tags)
+                    }
                 },
                 placeholder: {
-                    Image(systemName: "photo.fill")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(height: 90)
-                        .clipped()
                 })
-            Text(photo.title)
-                .font(.caption)
-                .bold()
-            let tags = photo.getTags(2)
-            if !tags.isEmpty{
-                TagView(tags: tags)
-            }
+            .background(
+                NavigationLink("", destination: DetailsView(photo: photo))
+                    .opacity(0)
+            )
+            
         }
     }
 }

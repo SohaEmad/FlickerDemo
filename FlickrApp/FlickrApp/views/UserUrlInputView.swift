@@ -8,15 +8,14 @@
 import SwiftUI
 
 struct UserUrlInputView: View {
-    @ObservedObject var modelView: ModelView
+    @EnvironmentObject var modelView : ModelView
+    
     var body: some View {
         NavigationView {
-            VStack{
-                UserView(modelView: modelView)
-            }
+            UserView()
         }
         .searchable(text: $modelView.userName)
-        .onChange(of: modelView.userName) { _ in
+        .onChange(of: modelView.userName) { _, _ in
             modelView.getUserID()
             modelView.getPhotos(useUserId: true)
         }
@@ -27,5 +26,5 @@ struct UserUrlInputView: View {
 }
 
 #Preview {
-    UserUrlInputView(modelView: ModelView())
+    UserUrlInputView()
 }

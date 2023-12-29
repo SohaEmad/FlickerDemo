@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct FlickrApp: App {
+    @ObservedObject var modelView = ModelView()
     var body: some Scene {
         WindowGroup {
             LoadingView()
+                .environmentObject(modelView)
         }
     }
 }

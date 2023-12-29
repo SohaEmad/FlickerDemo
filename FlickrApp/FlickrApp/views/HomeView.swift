@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct HomeView: View {
-    @ObservedObject var modelView: ModelView
+    @EnvironmentObject var modelView : ModelView
     
     var body: some View {
         NavigationStack {
-            ImageListView(modelView: modelView)
+            ImageListView()
                 .edgesIgnoringSafeArea(.horizontal)
                 .listStyle(GroupedListStyle())
                 .listRowSeparator(.hidden,
@@ -21,8 +21,7 @@ struct HomeView: View {
             
                 .toolbar {
                     ToolbarItem(placement: .topBarLeading) {
-                        NavigationLink(destination: UserUrlInputView(modelView: modelView)) {
-                            
+                        NavigationLink(destination: UserUrlInputView()) {
                             Image("home")
                                 .resizable()
                                 .frame(width: 40)
@@ -37,7 +36,7 @@ struct HomeView: View {
                             Text("User Id : \(modelView.user?.id ?? "")")
                             Spacer()
                             
-                            NavigationLink(destination: UserView(modelView: modelView)) {
+                            NavigationLink(destination: UserView()) {
                                 AsyncImage(
                                     url: URL(string:modelView.user?.profilePhoto ?? ""),
                                     content: { image in
@@ -63,5 +62,5 @@ struct HomeView: View {
 }
 
 #Preview {
-    HomeView(modelView: ModelView())
+    HomeView()
 }

@@ -9,22 +9,20 @@ import SwiftUI
 
 struct LoadingView: View {
     
-    @ObservedObject var modelView = ModelView()
     @State private var isActive = false
-
     @State private var isSelected = false
     @Namespace private var swipeAnimation
+    @EnvironmentObject var modelView : ModelView
     
     let timer = Timer.publish(every: 0.5, on: .main, in: .common).autoconnect()
     var body: some View {
         if isActive {
-            MainView(modelView: modelView)
+            MainView()
         } else {
             VStack{
                 Text("Flickr")
                     .font(.largeTitle).bold()
                     .foregroundStyle(.secondary)
-                
                 
                 HStack(spacing: 20){
                     if isSelected {
@@ -49,7 +47,7 @@ struct LoadingView: View {
             .onAppear{
                 modelView.getPhotos()
                 modelView.getUserID()
-                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0){
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2.0){
                     withAnimation {
                         self.isActive = true
                     }

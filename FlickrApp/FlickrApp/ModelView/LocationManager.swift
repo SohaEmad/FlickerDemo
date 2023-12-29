@@ -25,8 +25,8 @@ class LocationProvider: NSObject, ObservableObject {
         self.locationManager.startMonitoringSignificantLocationChanges()
     }
     private func requestAuthorization() {
-        if CLLocationManager.authorizationStatus() == .authorizedAlways ||
-            CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
+        if locationManager.authorizationStatus == .authorizedAlways ||
+            locationManager.authorizationStatus == .authorizedWhenInUse {
             return
         }
         self.locationManager.requestAlwaysAuthorization()
@@ -49,5 +49,11 @@ extension LocationProvider : CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         self.status = status
         self.setAuthorithed()
+    }
+}
+
+extension CLLocation {
+    func placemark(completion: @escaping (_ placemark: CLPlacemark?, _ error: Error?) -> ()) {
+        CLGeocoder().reverseGeocodeLocation(self) { completion($0?.first, $1) }
     }
 }

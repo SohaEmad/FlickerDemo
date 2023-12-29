@@ -100,6 +100,7 @@ class Network {
         }
         
         let locationString = location != nil ? "lat=\(location?.coordinate.latitude ?? 0.44 )&lon=\(location?.coordinate.longitude ?? 51.32 )&" : ""
+        print( "\(photoService)\(tags)&\(Constatnts.EXTRAS)&page=\(pageCount)&tag_mode=\(allTags ? "all" : "any")&\(locationString)\(Constatnts.FORMAT)")
         return URL(string: "\(photoService)\(tags)&\(Constatnts.EXTRAS)&page=\(pageCount)&tag_mode=\(allTags ? "all" : "any")&\(locationString)\(Constatnts.FORMAT)")
     }
     
