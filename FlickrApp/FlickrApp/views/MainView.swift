@@ -31,7 +31,7 @@ struct MainView: View {
             
             UserUrlInputView()
                 .tabItem {
-                    Label("search User", systemImage: "person")
+                    Label("", systemImage: "person")
                 }.tag(Tab.user)
         }
     }

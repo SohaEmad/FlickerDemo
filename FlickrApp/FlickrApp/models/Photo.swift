@@ -5,8 +5,10 @@
 //  Created by Soha Ahmed on 12/12/2023.
 //
 
-public struct Photo: Codable, Identifiable{
-    
+import Foundation
+
+public struct Photo: Codable, Identifiable {
+
     public var id: String = ""
     var owner: String = ""
     var secret: String = ""
@@ -46,4 +48,18 @@ public struct Photo: Codable, Identifiable{
 
 public struct Description: Codable {
     var _content: String?
+}
+
+extension Photo: Hashable {
+    var identifier: String {
+        return UUID().uuidString
+    }
+    
+    public func hash(into hasher: inout Hasher) {
+        return hasher.combine(identifier)
+    }
+    
+    public static func == (lhs: Photo, rhs: Photo) -> Bool {
+        return lhs.identifier == rhs.identifier
+    }
 }

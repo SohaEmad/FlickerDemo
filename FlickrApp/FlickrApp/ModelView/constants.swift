@@ -18,10 +18,10 @@ open class Constatnts{
     
     public static let FLICKR_GET_PHOTOS = "https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=\(APIKey)&safe_search=1"
     
-    public static let FLICKR_GET_Recent_PHOTOS = "https://www.flickr.com/services/rest/?method=flickr.photos.getRecent&api_key=\(APIKey)&safe_search=1"
+    public static let FLICKR_GET_Recent_PHOTOS = "https://www.flickr.com/services/rest/?method=flickr.photos.getRecent&api_key=\(APIKey)&safe_search=3"
     
     
-    public static let EXTRAS = "privacy_filter=1&content_type=1&extras=url_l%2C+date_taken%2C+owner_name%2C+description%2C+tags%2C+geo&per_page=20"
+    public static let EXTRAS = "privacy_filter=1&content_type=1&extras=url_l%2C+date_taken%2C+owner_name%2C+description%2C+tags%2C+geo&per_page=10"
     
     public static let FORMAT = "format=json&nojsoncallback=1"
     

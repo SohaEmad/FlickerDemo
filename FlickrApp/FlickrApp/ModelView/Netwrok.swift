@@ -90,8 +90,7 @@ class Network {
             } else {
                 _searchText = text[0].trimmingCharacters(in: .whitespacesAndNewlines)
             }
-            tags = "&tags=\(_searchText.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)!)"
-        }
+            tags = "&tags=\(_searchText.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)!)"        }
         
         if useUserId != "" {
             let userIdEncoded = useUserId.urlEncoded ?? ""

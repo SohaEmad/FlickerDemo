@@ -64,9 +64,13 @@ class ModelView: ObservableObject {
                 guard let newPhotos = try? await self.network.getPhotos(searchText: useSearchTags ? searchText : "", UserId: useUserId ? userID : "", pageCount: pageCount, allTags: allTags, location: location) else {
                     return
                 }
-                self.photos = newPhotos
+                self.photos.append(contentsOf: newPhotos)
             }
         }
+    }
+    
+    func reset() {
+        self.photos.removeAll()
     }
     
     
@@ -76,7 +80,7 @@ class ModelView: ObservableObject {
                 guard let newPhotos = try? await self.network.getPhotos(searchText: searchText, UserId: "", pageCount: pageCount) else {
                     return
                 }
-                self.photos = newPhotos
+                self.photos.append(contentsOf: newPhotos)
             }
         }
     }
@@ -104,5 +108,3 @@ extension String {
         return self.addingPercentEncoding(withAllowedCharacters: allowedCharacterSet)
     }
 }
-
-

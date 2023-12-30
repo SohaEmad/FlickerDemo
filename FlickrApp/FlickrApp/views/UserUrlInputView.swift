@@ -17,9 +17,12 @@ struct UserUrlInputView: View {
         .searchable(text: $modelView.userName)
         .onChange(of: modelView.userName) { _, _ in
             modelView.getUserID()
-            modelView.getPhotos(useUserId: true)
         }
+        .onSubmit(of: .search) {
+            modelView.getPhotos(useUserId: true)
+           }
         .onAppear{
+            modelView.reset()
             modelView.getUserID()
         }
     }

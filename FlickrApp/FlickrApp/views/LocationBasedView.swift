@@ -32,6 +32,7 @@ struct LocationBasedView: View {
                 modelView.getPhotos()
             }
             .onAppear{
+                modelView.reset()
                 Task{
                     locationProvider.curentLocaiton?.placemark { placemark, error in
                         if placemark != nil {
