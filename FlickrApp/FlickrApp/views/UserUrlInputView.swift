@@ -30,4 +30,5 @@ struct UserUrlInputView: View {
 
 #Preview {
     UserUrlInputView()
+            .environmentObject(ModelView())
 }

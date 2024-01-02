@@ -58,10 +58,12 @@ struct HomeView: View {
         }.onAppear{
             modelView.reset()
             modelView.getRecentPhotos()
+            modelView.getUserID()
         }
     }
 }
 
 #Preview {
     HomeView()
+        .environmentObject(ModelView())
 }

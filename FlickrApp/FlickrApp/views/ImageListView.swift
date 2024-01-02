@@ -28,4 +28,5 @@ struct ImageListView: View {
 
 #Preview {
     ImageListView()
+        .environmentObject(ModelView())
 }

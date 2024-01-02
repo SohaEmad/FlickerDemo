@@ -46,3 +46,8 @@ struct LocationBasedView: View {
         }
     }
 }
+
+#Preview {
+    LocationBasedView()
+        .environmentObject(ModelView())
+}

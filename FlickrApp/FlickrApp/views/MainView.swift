@@ -11,7 +11,7 @@ struct MainView: View {
     
     @EnvironmentObject var modelView: ModelView
     @AppStorage("selectedTab") var selectedTab: Tab = .home
-
+    
     var body: some View {
         TabView(selection: $selectedTab) {
             HomeView()
@@ -47,4 +47,5 @@ enum Tab: String {
 
 #Preview {
     MainView()
+        .environmentObject(ModelView())
 }

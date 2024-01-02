@@ -77,3 +77,8 @@ struct TagView: View {
         }
     }
 }
+
+#Preview {
+    TagView(tags: ["one", "two"])
+        .environmentObject(ModelView())
+}

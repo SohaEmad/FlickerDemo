@@ -74,3 +74,10 @@ struct SearchView: View {
             
         }}
 }
+
+
+#Preview {
+    SearchView()
+        .environmentObject(ModelView())
+    
+}

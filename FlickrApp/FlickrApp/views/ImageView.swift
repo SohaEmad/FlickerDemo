@@ -39,3 +39,6 @@ struct ImageView: View {
 }
 
 
+#Preview {
+    ImageView(photo: Photo(id: "", url_l: "https://live.staticflickr.com/65535/53414590793_0502b3e30f_b.jpg"))
+}

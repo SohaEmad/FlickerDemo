@@ -48,3 +48,8 @@ struct DetailsView: View {
         }
     }
 }
+
+
+#Preview {
+    DetailsView(photo: Photo(id: "", owner: "owner name", url_l: "https://live.staticflickr.com/65535/53414590793_0502b3e30f_b.jpg", description: Description(_content: "Seeing the northern lights is a life changing experience for many.  But how do you know when to go?  And when you get there, how do you photograph it?  See comment section.  Here are a few images I took earlier in the year."),tags:"actionphototours auroraborealis northernlights aurora iceland night nightphotography"))
+}

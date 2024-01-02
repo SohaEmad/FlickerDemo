@@ -53,3 +53,8 @@ struct UserView: View {
         }
     }
 }
+
+#Preview {
+    UserView()
+        .environmentObject(ModelView())
+}
