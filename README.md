@@ -16,6 +16,7 @@ API Resource [Flickr api](https://www.flickr.com/services/api/flickr.photos.sear
 <img src="https://github.com/SohaEmad/FlickerDemo/blob/main/photos/splash_screen.gif" width="200">
 
 2- home view 
+
 <img src="https://github.com/SohaEmad/FlickerDemo/blob/main/photos/main_view.jpg" width="200">
 
 2- search view 
@@ -35,9 +36,11 @@ API Resource [Flickr api](https://www.flickr.com/services/api/flickr.photos.sear
 <img src="https://github.com/SohaEmad/FlickerDemo/blob/main/photos/details_screen.gif" width="200">
 
 6- location based view 
+
 <img src="https://github.com/SohaEmad/FlickerDemo/blob/main/photos/location_view.jpg" width="200">
 
 (you will need to allow location access to enable the above screen)
+
 
 To search: enter a category, then free text deliminated by a comma e.g.
 
