@@ -44,7 +44,7 @@ API Resource [Flickr api](https://www.flickr.com/services/api/flickr.photos.sear
 
 7- clicking any tag will update the search text to the tag value and switch to the search view 
 
-<img src="https://github.com/SohaEmad/FlickerDemo/blob/main/photos/tag_redirect.gif" width="200">
+<img src="https://github.com/SohaEmad/FlickerDemo/blob/main/photos/tags_redirect.gif" width="200">
 
 To search: enter a category, then free text deliminated by a comma e.g.
 
