@@ -42,6 +42,10 @@ API Resource [Flickr api](https://www.flickr.com/services/api/flickr.photos.sear
 (you will need to allow location access to enable the above screen)
 
 
+7- clicking any tag will update the search text to the tag value and switch to the search view 
+
+<img src="https://github.com/SohaEmad/FlickerDemo/blob/main/photos/tag_redirect.gif" width="200">
+
 To search: enter a category, then free text deliminated by a comma e.g.
 
 Rocket, spacex  <- this will search for tags of Rocket with text spacex.
