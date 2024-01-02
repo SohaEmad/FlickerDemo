@@ -37,7 +37,7 @@ struct LocationBasedView: View {
                     locationProvider.curentLocaiton?.placemark { placemark, error in
                         if placemark != nil {
                             modelView.searchText = "\(placemark?.city ?? ""),\(placemark?.country ?? "")"
-                            modelView.getPhotos(location: locationProvider.curentLocaiton, useSearchTags: placemark != nil)
+                            modelView.getPhotos(location: locationProvider.curentLocaiton)
                         }
                     }
                 }

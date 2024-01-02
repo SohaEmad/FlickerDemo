@@ -7,49 +7,113 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "C65A94C5-430C-41FA-9920-CA87E92359ED"
+            uuid = "5E3B382F-43FD-4EA1-AA5B-0FA1E64BF173"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "FlickrApp/ModelView/Netwrok.swift"
+            filePath = "FlickrApp/views/SearchView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "95"
-            endingLineNumber = "95"
-            landmarkName = "buildGetPhotosUrl(searchText:useUserId:pageCount:allTags:location:)"
-            landmarkType = "7">
+            startingLineNumber = "64"
+            endingLineNumber = "64"
+            landmarkName = "body"
+            landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "167CDDDA-F967-4C9C-A336-0A6E167C0C25"
+            uuid = "85A6CF89-D0B8-4263-9E91-1744E2E84A6B"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "FlickrApp/ModelView/Netwrok.swift"
+            filePath = "FlickrApp/views/SearchView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "91"
-            endingLineNumber = "91"
-            landmarkName = "buildGetPhotosUrl(searchText:useUserId:pageCount:allTags:location:)"
-            landmarkType = "7">
+            startingLineNumber = "63"
+            endingLineNumber = "63"
+            landmarkName = "body"
+            landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "EFE379BE-B36A-44E8-A901-B969C1203CAC"
+            uuid = "7AD19D7D-E03A-41F3-8ED3-6F100C6AF624"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FlickrApp/ModelView/Netwrok.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "88"
-            endingLineNumber = "88"
+            startingLineNumber = "83"
+            endingLineNumber = "83"
             landmarkName = "buildGetPhotosUrl(searchText:useUserId:pageCount:allTags:location:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "7AD19D7D-E03A-41F3-8ED3-6F100C6AF624 - 4cb9d298ce25db71"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FlickrApp.Network.buildGetPhotosUrl(searchText: Swift.String, useUserId: Swift.String, pageCount: Swift.Int, allTags: Swift.Bool, location: Swift.Optional&lt;__C.CLLocation&gt;) -&gt; Swift.Optional&lt;Foundation.URL&gt;"
+                  moduleName = "FlickrApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sohaahmed/CS193-swiftUI/FlickerDemo/FlickrApp/FlickrApp/ModelView/Netwrok.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "83"
+                  endingLineNumber = "83"
+                  offsetFromSymbolStart = "628">
+               </Location>
+               <Location
+                  uuid = "7AD19D7D-E03A-41F3-8ED3-6F100C6AF624 - 4cb9d298ce25db71"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FlickrApp.Network.buildGetPhotosUrl(searchText: Swift.String, useUserId: Swift.String, pageCount: Swift.Int, allTags: Swift.Bool, location: Swift.Optional&lt;__C.CLLocation&gt;) -&gt; Swift.Optional&lt;Foundation.URL&gt;"
+                  moduleName = "FlickrApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sohaahmed/CS193-swiftUI/FlickerDemo/FlickrApp/FlickrApp/ModelView/Netwrok.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "83"
+                  endingLineNumber = "83"
+                  offsetFromSymbolStart = "508">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3E5F7609-AF63-4441-BDED-68DB1D548799"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FlickrApp/views/LocationBasedView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
+            landmarkName = "body"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1F62B298-6825-4123-B9F6-E590CD1A6126"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FlickrApp/views/LocationBasedView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
+            landmarkName = "body"
+            landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -77,20 +77,23 @@ class Network {
     
     
     private func buildGetPhotosUrl(searchText: String, useUserId: String, pageCount: Int, allTags: Bool = false, location: CLLocation? = nil) -> URL? {
-        var _searchText = searchText
         var photoService = Constatnts.FLICKR_GET_PHOTOS
-        var tags = ""
+        var tempSearchText = searchText
         if searchText.isEmpty {
             photoService = Constatnts.FLICKR_GET_Recent_PHOTOS
+        }
+        var text = tempSearchText.components(separatedBy: ",")
+        var tags = "";
+        if(text.count > 1){
+            tempSearchText = text[text.count-1].trimmingCharacters(in: .whitespacesAndNewlines)
+            text.removeLast()
+            tags = text.joined(separator: ",")
         } else {
-            var text = _searchText.components(separatedBy: ",")
-            if(text.count > 1){
-                _searchText = text[text.count-1].trimmingCharacters(in: .whitespacesAndNewlines);
-                text.removeLast()
-            } else {
-                _searchText = text[0].trimmingCharacters(in: .whitespacesAndNewlines)
-            }
-            tags = "&tags=\(_searchText.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)!)"        }
+            tempSearchText = text[0].trimmingCharacters(in: .whitespacesAndNewlines)
+        }
+        
+        let safeText = tempSearchText.urlEncoded ?? searchText
+        let safeCat = tags.urlEncoded ?? tags
         
         if useUserId != "" {
             let userIdEncoded = useUserId.urlEncoded ?? ""
@@ -99,8 +102,8 @@ class Network {
         }
         
         let locationString = location != nil ? "lat=\(location?.coordinate.latitude ?? 0.44 )&lon=\(location?.coordinate.longitude ?? 51.32 )&" : ""
-        print( "\(photoService)\(tags)&\(Constatnts.EXTRAS)&page=\(pageCount)&tag_mode=\(allTags ? "all" : "any")&\(locationString)\(Constatnts.FORMAT)")
-        return URL(string: "\(photoService)\(tags)&\(Constatnts.EXTRAS)&page=\(pageCount)&tag_mode=\(allTags ? "all" : "any")&\(locationString)\(Constatnts.FORMAT)")
+        print("\(photoService)&tags=\(safeCat)&text=\(safeText)&privacy_filter=1&content_type=1&\(Constatnts.EXTRAS)&page=\(pageCount)&tag_mode=\(allTags ? "all" : "any")&\(locationString)\(Constatnts.FORMAT)")
+        return URL(string: "\(photoService)&tags=\(safeCat)&text=\(safeText)&privacy_filter=1&content_type=1&\(Constatnts.EXTRAS)&page=\(pageCount)&tag_mode=\(allTags ? "all" : "any")&\(locationString)\(Constatnts.FORMAT)")
     }
     
     

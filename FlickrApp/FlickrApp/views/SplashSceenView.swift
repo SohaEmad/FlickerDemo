@@ -45,7 +45,7 @@ struct LoadingView: View {
                 }
             }
             .onAppear{
-                modelView.getPhotos()
+                modelView.getRecentPhotos()
                 modelView.getUserID()
                 DispatchQueue.main.asyncAfter(deadline: .now() + 2.0){
                     withAnimation {

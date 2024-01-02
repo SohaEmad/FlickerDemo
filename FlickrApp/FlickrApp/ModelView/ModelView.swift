@@ -56,12 +56,27 @@ class ModelView: ObservableObject {
      useUserId: Boolean that define if the photos will use user Id filter or not
      allTags: Boolean that define if all tags should be considered in the search or not
      location: a CLocation instance make the photo search location dependent by default nil
-     useSearchTags: a Boolean that deceid if the get  photo by tag or just recent photos
      */
-    @MainActor func getPhotos(useUserId: Bool = false, allTags: Bool = false, location: CLLocation? = nil, useSearchTags: Bool = false) {
+    @MainActor func getPhotos(useUserId: Bool = false, allTags: Bool = false, location: CLLocation? = nil) {
         Task{
             do {
-                guard let newPhotos = try? await self.network.getPhotos(searchText: useSearchTags ? searchText : "", UserId: useUserId ? userID : "", pageCount: pageCount, allTags: allTags, location: location) else {
+                guard let newPhotos = try? await self.network.getPhotos(searchText: searchText , UserId: useUserId ? userID : "", pageCount: pageCount, allTags: allTags, location: location) else {
+                    return
+                }
+                self.photos.append(contentsOf: newPhotos)
+            }
+        }
+    }
+    
+    
+    /**
+     get  rmost recent  photos
+     */
+    
+    @MainActor func getRecentPhotos(useUserId: Bool = false, location: CLLocation? = nil) {
+        Task{
+            do {
+                guard let newPhotos = try? await self.network.getPhotos(searchText: "", UserId: "", pageCount: pageCount, allTags: false, location: location) else {
                     return
                 }
                 self.photos.append(contentsOf: newPhotos)

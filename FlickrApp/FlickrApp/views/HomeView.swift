@@ -57,7 +57,7 @@ struct HomeView: View {
                 }
         }.onAppear{
             modelView.reset()
-            modelView.getPhotos(useSearchTags: false)
+            modelView.getRecentPhotos()
         }
     }
 }

@@ -59,14 +59,14 @@ struct SearchView: View {
                         
                     }    }
             .searchable(text: $modelView.searchText, placement: .navigationBarDrawer(displayMode: .automatic))
-            .onChange(of: modelView.searchText) { _, _ in
+            .onChange(of: modelView.searchText) { _ , _ in
                 modelView.reset()
-                modelView.getPhotos(useSearchTags: true)
+                modelView.getPhotos()
             }
             .onAppear{
                 Task{
                     modelView.reset()
-                    modelView.getPhotos(useSearchTags: true)
+                    modelView.getPhotos()
                     modelView.getUserID()
                 }
             }
