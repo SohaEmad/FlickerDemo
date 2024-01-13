@@ -1,4 +1,4 @@
-# FlickrDemo
+# Flickr Demo
 
 ![](https://img.shields.io/badge/Swift:-5.3_5.4_5.5-ff5900.svg)
 ![](https://img.shields.io/badge/Platform:-_iOS-ff5900.svg)
@@ -52,13 +52,13 @@ Rocket, spacex  <- this will search for tags of Rocket with text spacex.
 
 Guitar, Amplifiers, fender <- this will search for 2 tags Guitar and Amplifier with text fender.
 
-# Run
+# Run:
 1. Open up xcode (>=11) 
 2. navigate to the project FlickrPics
 3. choose your device or simulator
 4. hit run
 
-## Decision Explination: 
+## Decisions Explanation:
 
 1. The initial attempt to search for a user by name using `findByUsername` yielded inconsistent results, as evidenced in the provided code. Subsequently, I opted for the more efficient and consistent `lookupUser` method. The code snippet below illustrates this transition:
 
