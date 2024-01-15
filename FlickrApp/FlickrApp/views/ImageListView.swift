@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ImageListView: View {
     @EnvironmentObject var modelView : ModelView
+    var loadRecent: Bool
     
     var body: some View {
         List {
@@ -20,6 +21,9 @@ struct ImageListView: View {
             Color.clear
                 .frame(width: 0, height: 0, alignment: .bottom)
                 .onAppear {
+                    if loadRecent {
+                        modelView.loadMoreRecentPhotos()
+                    }
                     modelView.loadMorePhotos()
                 }
         }
@@ -27,6 +31,6 @@ struct ImageListView: View {
 }
 
 #Preview {
-    ImageListView()
+    ImageListView(loadRecent: true)
         .environmentObject(ModelView())
 }

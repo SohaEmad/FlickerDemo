@@ -79,12 +79,12 @@ class Network {
     private func buildGetPhotosUrl(searchText: String, useUserId: String, pageCount: Int, allTags: Bool = false, location: CLLocation? = nil) -> URL? {
         var photoService = Constatnts.FLICKR_GET_PHOTOS
         var tempSearchText = searchText
-        if searchText.isEmpty {
+        if searchText == "" {
             photoService = Constatnts.FLICKR_GET_Recent_PHOTOS
         }
         var text = tempSearchText.components(separatedBy: ",")
         var tags = "";
-        if(text.count > 1){
+        if(text.count > 0){
             tempSearchText = text[text.count-1].trimmingCharacters(in: .whitespacesAndNewlines)
             text.removeLast()
             tags = text.joined(separator: ",")
@@ -102,7 +102,7 @@ class Network {
         }
         
         let locationString = location != nil ? "lat=\(location?.coordinate.latitude ?? 0.44 )&lon=\(location?.coordinate.longitude ?? 51.32 )&" : ""
-        print("\(photoService)&tags=\(safeCat)&text=\(safeText)&privacy_filter=1&content_type=1&\(Constatnts.EXTRAS)&page=\(pageCount)&tag_mode=\(allTags ? "all" : "any")&\(locationString)\(Constatnts.FORMAT)")
+        
         return URL(string: "\(photoService)&tags=\(safeCat)&text=\(safeText)&privacy_filter=1&content_type=1&\(Constatnts.EXTRAS)&page=\(pageCount)&tag_mode=\(allTags ? "all" : "any")&\(locationString)\(Constatnts.FORMAT)")
     }
     

@@ -9,11 +9,12 @@ import CoreLocation
 import Combine
 
 class LocationProvider: NSObject, ObservableObject {
-    var locationManager = CLLocationManager()
     
+    var locationManager = CLLocationManager()
     @Published var curentLocaiton: CLLocation? = nil
-    var status: CLAuthorizationStatus? = nil
     @Published var authoried: Bool = false
+    var status: CLAuthorizationStatus? = nil
+
     
     override init() {
         super.init()

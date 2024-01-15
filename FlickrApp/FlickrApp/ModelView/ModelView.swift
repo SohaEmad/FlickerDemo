@@ -7,10 +7,11 @@
 
 import Foundation
 import CoreLocation
+import SwiftUI
 
 class ModelView: ObservableObject {
     
-    @Published var searchText: String = "Yorkshire"
+    @Published var searchText: String = "Bristol"
     @Published var user: User?
     @Published var userName : String = Constatnts.DEFAULT_USER
     var userUrl: String = ""
@@ -20,6 +21,9 @@ class ModelView: ObservableObject {
     private var network: Network
     @Published var allTags = false   
     @Published var location: CLLocation? 
+    
+    @State private var isLoading = false
+    @State private var isFinished = false
     
     init(){
         network = Network()
@@ -58,12 +62,16 @@ class ModelView: ObservableObject {
      location: a CLocation instance make the photo search location dependent by default nil
      */
     @MainActor func getPhotos(useUserId: Bool = false, allTags: Bool = false, location: CLLocation? = nil) {
-        Task{
-            do {
-                guard let newPhotos = try? await self.network.getPhotos(searchText: searchText , UserId: useUserId ? userID : "", pageCount: pageCount, allTags: allTags, location: location) else {
-                    return
+        if !isLoading {
+            isLoading = true
+            Task{
+                do {
+                    guard let newPhotos = try? await self.network.getPhotos(searchText: searchText , UserId: useUserId ? userID : "", pageCount: pageCount, allTags: allTags, location: location) else {
+                        return
+                    }
+                    self.photos.append(contentsOf: newPhotos)
+                    isLoading = false
                 }
-                self.photos.append(contentsOf: newPhotos)
             }
         }
     }
@@ -105,8 +113,17 @@ class ModelView: ObservableObject {
      */
     
     @MainActor func loadMorePhotos(usingUserId: Bool = false) {
-        pageCount += 1
-        getPhotos(useUserId: usingUserId)
+        if !isLoading {
+            self.pageCount += 1
+            getPhotos(useUserId: usingUserId)
+        }
+    }
+    
+    @MainActor func loadMoreRecentPhotos(usingUserId: Bool = false) {
+        if !isLoading {
+            self.pageCount += 1
+            getRecentPhotos(useUserId: usingUserId)
+        }
     }
 }
 

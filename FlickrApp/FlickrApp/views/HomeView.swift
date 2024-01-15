@@ -8,17 +8,18 @@
 import SwiftUI
 
 struct HomeView: View {
+    
     @EnvironmentObject var modelView : ModelView
     
     var body: some View {
         NavigationStack {
-            ImageListView()
+            ImageListView(loadRecent: true)
                 .edgesIgnoringSafeArea(.horizontal)
                 .listStyle(GroupedListStyle())
                 .listRowSeparator(.hidden,
                                   edges: .bottom)
                 .padding(.bottom)
-            
+
                 .toolbar {
                     ToolbarItem(placement: .topBarLeading) {
                         NavigationLink(destination: UserUrlInputView()) {
@@ -55,6 +56,8 @@ struct HomeView: View {
                         }
                     }
                 }
+  
+  
         }.onAppear{
             modelView.reset()
             modelView.getRecentPhotos()

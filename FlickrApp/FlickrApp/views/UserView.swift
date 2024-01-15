@@ -37,11 +37,6 @@ struct UserView: View {
                             )
                     }
                 }
-                Color.clear
-                    .frame(width: 0, height: 0, alignment: .bottom)
-                    .onAppear {
-                        modelView.loadMorePhotos(usingUserId: true)
-                    }
             }
             .edgesIgnoringSafeArea(.horizontal)
             .listStyle(GroupedListStyle())

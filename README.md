@@ -4,8 +4,7 @@
 ![](https://img.shields.io/badge/Platform:-_iOS-ff5900.svg)
 ![](https://img.shields.io/badge/chip_support:-M1-ff5900.svg)
 
-## SwiftUI implementation of a Flickr photo browser.
-
+ 
 API Resource [Flickr api](https://www.flickr.com/services/api/flickr.photos.search.html)
 
 

@@ -21,7 +21,7 @@ public struct Photo: Codable, Identifiable {
     var url_l: String?
     var height_l: Int?
     var width_l: Int?
-    var datetaken: String = ""
+    var datetaken: String?
     var ownername: String?
     var description: Description?
     var tags: String?
@@ -42,7 +42,7 @@ public struct Photo: Codable, Identifiable {
     }
     
     func getDate() -> String {
-        return datetaken.components(separatedBy: " ").first ?? " "
+        return datetaken?.components(separatedBy: " ").first ?? " "
     }
 }
 

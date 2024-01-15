@@ -20,12 +20,17 @@ struct LocationBasedView: View {
             }
             
             NavigationStack {
-                ImageListView()
+                ImageListView(loadRecent: false)
                     .edgesIgnoringSafeArea(.horizontal)
                     .listStyle(GroupedListStyle())
                     .listRowSeparator(.hidden,
                                       edges: .bottom)
                     .padding(.bottom)
+                Color.clear
+                    .frame(width: 0, height: 0, alignment: .bottom)
+                    .onAppear {
+                        modelView.loadMorePhotos()
+                    }
             }
             .searchable(text: $modelView.searchText, placement: .navigationBarDrawer(displayMode: .automatic))
             .onChange(of: modelView.searchText) { _, _ in
@@ -36,7 +41,6 @@ struct LocationBasedView: View {
                 Task{
                     locationProvider.curentLocaiton?.placemark { placemark, error in
                         if placemark != nil {
-                            modelView.searchText = "\(placemark?.city ?? ""),\(placemark?.country ?? "")"
                             modelView.getPhotos(location: locationProvider.curentLocaiton)
                         }
                     }

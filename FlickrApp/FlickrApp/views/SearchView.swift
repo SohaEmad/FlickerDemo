@@ -14,7 +14,7 @@ struct SearchView: View {
     var body: some View {
         VStack{
             NavigationStack {
-                ImageListView()
+                ImageListView(loadRecent: false)
                     .edgesIgnoringSafeArea(.horizontal)
                     .listStyle(GroupedListStyle())
                     .listRowSeparator(.hidden,
@@ -57,7 +57,13 @@ struct SearchView: View {
                             }
                         }
                         
-                    }    }
+                    }  
+                Color.clear
+                    .frame(width: 0, height: 0, alignment: .bottom)
+                    .onAppear {
+                        modelView.loadMorePhotos()
+                    }
+            }
             .searchable(text: $modelView.searchText, placement: .navigationBarDrawer(displayMode: .automatic))
             .onChange(of: modelView.searchText) { _ , _ in
                 modelView.reset()

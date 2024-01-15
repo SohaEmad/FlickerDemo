@@ -17,7 +17,7 @@ final class FlickrAppTests: XCTestCase {
     var user: User?
     
     @MainActor override func setUp() async throws {
-        user =  try await network.getUserId(userName: "https://www.flickr.com/photos/dswindler/")
+        user =  try await network.getUserId(userUrl: "https://www.flickr.com/photos/dswindler/")
         photos = try await network.getPhotos(searchText: "", UserId: "", pageCount: 0)
     }
     
